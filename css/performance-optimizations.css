@@ -1,0 +1,234 @@
+/* Performance Optimization CSS */
+/* Add this file to improve rendering performance and smooth animations */
+
+/* ========================================
+   HARDWARE ACCELERATION & PERFORMANCE
+   ======================================== */
+
+/* Enable hardware acceleration for animated elements */
+.faculty-card,
+.activity-card,
+.gallery-slideshow,
+.achievement-modal {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Remove will-change after animations complete */
+.faculty-card:not(:hover),
+.activity-card:not(:hover) {
+  will-change: auto;
+}
+
+/* ========================================
+   IMAGE OPTIMIZATION
+   ======================================== */
+
+/* Smooth image loading with fade-in effect */
+img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img.loaded,
+img[loading="eager"] {
+  opacity: 1;
+}
+
+/* Optimize image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* ========================================
+   FONT LOADING OPTIMIZATION
+   ======================================== */
+
+/* Hide text until fonts are loaded to prevent FOUT */
+body:not(.fonts-loaded) {
+  visibility: hidden;
+}
+
+body.fonts-loaded {
+  visibility: visible;
+}
+
+/* Font display optimization */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap; /* Ensures text remains visible during font load */
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT
+   ======================================== */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .reduce-motion * {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ========================================
+   LAYOUT OPTIMIZATION
+   ======================================== */
+
+/* Prevent layout shifts */
+.faculty-photo {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+/* Optimize grid layouts */
+.assistant-grid,
+.associate-grid,
+.activities-grid {
+  contain: layout style;
+}
+
+/* ========================================
+   SCROLL OPTIMIZATION
+   ======================================== */
+
+/* Smooth scrolling with performance consideration */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize scroll containers */
+.achievement-modal__body {
+  contain: layout style;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+}
+
+/* ========================================
+   ANIMATION PERFORMANCE
+   ======================================== */
+
+/* Optimize hover animations */
+.faculty-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faculty-card:hover {
+  transform: translateY(-4px) translateZ(0);
+}
+
+/* Optimize modal animations */
+.achievement-modal {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.achievement-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ========================================
+   LOADING STATES
+   ======================================== */
+
+/* Loading skeleton for faculty cards */
+.faculty-card.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ========================================
+   CRITICAL CSS INLINING HELPERS
+   ======================================== */
+
+/* Above-the-fold critical styles */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.hero-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   ACCESSIBILITY PERFORMANCE
+   ======================================== */
+
+/* Optimize focus indicators */
+:focus-visible {
+  outline: 2px solid var(--gmu-primary);
+  outline-offset: 2px;
+  transition: outline-offset 0.2s ease;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .faculty-card {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ========================================
+   PRINT OPTIMIZATION
+   ======================================== */
+
+@media print {
+  /* Hide non-essential elements when printing */
+  .chatbox,
+  .achievement-modal,
+  .faculty-linkedin,
+  .back-button {
+    display: none !important;
+  }
+  
+  /* Optimize for print */
+  .faculty-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ========================================
+   CONTAINER QUERIES (Future-proofing)
+   ======================================== */
+
+/* When container queries are supported */
+@supports (container-type: inline-size) {
+  .faculty-section {
+    container-type: inline-size;
+  }
+  
+  @container (max-width: 768px) {
+    .assistant-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

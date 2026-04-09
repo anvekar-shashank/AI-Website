@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Board of Studies - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+      font-weight: 700;
+    }
+    .breadcrumb {
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #5b1f1f;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #472222;
+    }
+    .member-card {
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-left: 4px solid #5b1f1f;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .member-card h4 {
+      margin-top: 0;
+      color: #5b1f1f;
+    }
+    .faculty-member {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      align-items: flex-start;
+    }
+    .faculty-member:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .faculty-photo {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #5b1f1f;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .faculty-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .faculty-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .faculty-info h5 {
+      margin: 0;
+      color: #5b1f1f;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .faculty-info p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    .faculty-info a {
+      color: #5b1f1f;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .faculty-info a:hover {
+      text-decoration: underline;
+    }
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .faculty-member {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .faculty-photo {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .mom-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.9rem;
+    }
+    .mom-btn {
+      padding: 0.7rem 1.1rem;
+      background: linear-gradient(135deg, #5b1f1f, #7a2b2b);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.25s ease;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+    .mom-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+      background: linear-gradient(135deg, #6b2626, #8a3333);
+    }
+    .mom-btn:focus-visible {
+      outline: 3px solid rgba(91,31,31,0.35);
+      outline-offset: 2px;
+    }
+    /* Modal removed */
+  </style>
+</head>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Board of Studies (BoS)</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / BoS
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h2>Board of Studies Meeting - ECE Department</h2>
+        <p>The Board of Studies (BoS) meeting was conducted to review and approve the curriculum for B.Tech in Electronics and Communication Engineering program for the academic year 2024-25.</p>
+
+        <div class="member-card">
+          <h3>Meeting Details</h3>
+          <p><strong>Date:</strong> 21st July 2025<br/>
+          <strong>Time:</strong> 10:00 AM to 1:00 PM<br/>
+          <strong>Venue:</strong> GM University, Davangere</p>
+        </div>
+
+        <h3>BoS Members</h3>
+
+        <!-- Chairperson -->
+        <div class="member-card">
+          <h4>Chairperson</h4>
+          <div class="faculty-member">
+            <div class="faculty-photo">
+              <img src="../Pages Information/Faculty/Faculty Profile Photo/Dr H D Maheshappa.png" alt="Dr. H.D. Maheshappa">
+            </div>
+            <div class="faculty-info">
+              <h5>Dr. H.D. Maheshappa</h5>
+              <p>Pro-Vice Chancellor<br/>
+              GM University, Davangere – 577006<br/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chairman -->
+        <div class="member-card">
+          <h4>Chairman</h4>
+          <div class="faculty-member">
+            <div class="faculty-photo">
+              <img src="../Pages Information/Faculty/Faculty Profile Photo/PRAVEEN J.jpeg" alt="Dr. Praveen J">
+            </div>
+            <div class="faculty-info">
+              <h5>Dr. Praveen J</h5>
+              <p>Director, School of Engineering<br/>
+              GM University, Davangere – 577006<br/>
+            </div>
+          </div>
+        </div>
+
+        <!-- External Members -->
+        <div class="member-card">
+          <h4>External Members</h4>
+          <div class="faculty-grid">
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="../Pages Information/Faculty/Faculty Profile Photo/Dr Manjunath P.png" alt="Dr. Manjunath P">
+              </div>
+              <div class="faculty-info">
+                <h5>Dr. Manjunath P</h5>
+                <p>Principal<br/>
+                B.L.D.E.A's Dr. P G Halakatti College of Engineering and Technology<br/>
+                Vijaypura</p>
+              </div>
+            </div>
+
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="../Pages Information/Faculty/Faculty Profile Photo/Dr K M Sudharshan.png" alt="Dr. K M Sudharshan">
+              </div>
+              <div class="faculty-info">
+                <h5>Dr. K M Sudharshan</h5>
+                <p>Professor & Director<br/>
+                School of ECE<br/>
+                Reva University, Bangalore - 560061<br/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <h4>Internal Faculty Members</h4>
+          <div class="faculty-grid">
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="../Pages Information/Faculty/Faculty Profile Photo/KAVITHA K J.jpg" alt="Dr. Kavitha K J">
+              </div>
+              <div class="faculty-info">
+                <h5>Dr. Kavitha K J</h5>
+                <p>Associate Professor<br/>Dept. of ECE<br/>
+              </div>
+            </div>
+
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="../Pages Information/Faculty/Faculty Profile Photo/MANJULA B K.jpg" alt="Mrs. Manjula B K">
+              </div>
+              <div class="faculty-info">
+                <h5>Mrs. Manjula B K</h5>
+                <p>Assistant Professor<br/>Dept. of ECE<br/>
+              </div>
+            </div>
+
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="../Pages Information/Faculty/Faculty Profile Photo/HARISHA G C.jpeg" alt="Mr. Harisha G C">
+              </div>
+              <div class="faculty-info">
+                <h5>Mr. Harisha G C</h5>
+                <p>Assistant Professor<br/>Dept. of ECE<br/>
+              </div>
+            </div>
+
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="../Pages Information/Faculty/Faculty Profile Photo/SAMPATH KUMAR.jpg" alt="Mr. Samapth Kumar B">
+              </div>
+              <div class="faculty-info">
+                <h5>Mr. Samapth Kumar B</h5>
+                <p>Assistant Professor<br/>Dept. of ECE<br/>
+              </div>
+            </div>
+
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="../Pages Information/Faculty/Faculty Profile Photo/PRADEEP T M.jpg" alt="Dr. Pradeep T M">
+              </div>
+              <div class="faculty-info">
+                <h5>Dr. Pradeep T M</h5>
+                <p>Assistant Professor<br/>Dept. of ECE<br/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <h4>Minutes of Meeting</h4>
+          <p>Select a year to view the Minutes of Meeting document.</p>
+          <div class="mom-buttons">
+            <button class="mom-btn" data-year="2025">2025</button>
+            <button class="mom-btn" data-year="2024">2024</button>
+            <button class="mom-btn" data-year="2023">2023</button>
+          </div>
+        </div>
+
+        <a href="../index.html" class="back-button">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal removed: BoS documents open in new tab -->
+
+  <script>
+    (function(){
+      const yearButtons = document.querySelectorAll('.mom-btn');
+
+      const momDocs = {
+        '2025': [
+          { name: '1-ECE-BoS Meeting 2025-26.pdf', url: '../Pages%20Information/BoS/2025/1-ECE-BoS%20Meeting%202025-26.pdf' },
+        ],
+        '2024': [
+          { name: '1-ECE-BoS Meeting 2024-25.pdf', url: '../Pages%20Information/BoS/2024/1-ECE-BoS%20Meeting%202024-25.pdf' },
+        ],
+        '2023': [
+          { name: '1-ECE-BoS Meeting 2023-24.pdf', url: '../Pages%20Information/BoS/2023/1-ECE-BoS%20Meeting%202023-24.pdf' },
+        ]
+      };
+
+      function setIframeUrl(url){
+        const isHttp = /^https?:\/\//i.test(url);
+        const isPdf = /\.pdf($|\?)/i.test(url);
+        let viewerUrl = url;
+        if (isPdf && !isHttp) {
+          viewerUrl += '#view=FitH';
+        } else if (isPdf && isHttp) {
+          viewerUrl = 'https://docs.google.com/gview?embedded=true&url=' + encodeURIComponent(url);
+        }
+        window.open(viewerUrl, '_blank', 'noopener');
+      }
+
+      function renderDocList(year){
+        const docs = momDocs[year] || [];
+        if (docs.length === 0) {
+          alert('Document for ' + year + ' will appear here once you share the URL.');
+          return;
+        }
+        setIframeUrl(docs[0].url);
+      }
+
+      function openModalForYear(year){
+        renderDocList(year);
+      }
+
+      function closeModal(){
+        /* no-op: modal removed */
+      }
+
+      yearButtons.forEach(btn => {
+        btn.addEventListener('click', () => openModalForYear(btn.getAttribute('data-year')));
+      });
+    })();
+  </script>
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

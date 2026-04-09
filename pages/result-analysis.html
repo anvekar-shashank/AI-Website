@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Result & Analysis - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-header { background: linear-gradient(135deg, #5b1f1f, #472222); color: white; padding: 3rem 0; margin-bottom: 2rem; }
+    .page-header h1 { margin: 0; font-size: 2.2rem; color: white; font-weight: 700; }
+    .breadcrumb { margin-top: 1rem; opacity: 0.9; }
+    .breadcrumb a { color: white; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .content-section { background: white; padding: 2rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .coordinator-card { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; text-align: center; margin: 1.5rem 0; display: flex; flex-direction: column; align-items: center; }
+    .coordinator-card img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid #5b1f1f; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top: 8px; }
+    .section-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+    .info-tile { padding: 1rem; background: #f8f9fa; border-left: 4px solid #5b1f1f; border-radius: 6px; }
+    .back-button { display: inline-block; padding: 0.75rem 1.5rem; background: #5b1f1f; color: white; text-decoration: none; border-radius: 4px; margin-top: 2rem; transition: background 0.3s; }
+    .back-button:hover { background: #472222; }
+    .scheme-header { margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; }
+    .pill-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+    .pill-btn { appearance: none; border: 0; cursor: pointer; padding: 0.9rem 1rem; border-radius: 12px; background: linear-gradient(180deg, #672929, #5b1f1f); color: #fff; font-weight: 700; letter-spacing: 0.3px; box-shadow: 0 6px 16px rgba(0,0,0,0.15); transition: transform 0.1s ease, background 0.3s ease, box-shadow 0.3s ease; text-align: center; }
+    .pill-btn:hover { transform: translateY(-2px); background: linear-gradient(180deg, #753333, #5b1f1f); box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+    .pill-btn[aria-pressed="true"] { outline: 2px solid #c88; }
+    .semester-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin: 0.5rem 0 1.25rem; }
+    .semester-btn { appearance: none; border: 1px solid #e6dddd; background: #fff; color: #5b1f1f; border-radius: 10px; padding: 0.7rem 0.9rem; font-weight: 700; cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.1s; }
+    .semester-btn:hover { background: #f6eded; transform: translateY(-1px); }
+    .semester-btn[aria-pressed="true"] { background: #5b1f1f; color: #fff; }
+    .toppers-panel { display: none; background: #f8f9fa; border-radius: 10px; padding: 1.25rem; border: 1px solid #eee; }
+    .toppers-header { margin-bottom: 0.75rem; font-weight: 700; color: #5b1f1f; }
+    .topper-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .topper-card { background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); padding: 1rem; display: flex; align-items: center; gap: 1rem; border-top: 4px solid #5b1f1f; }
+    .topper-photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #5b1f1f; }
+    .topper-name { font-weight: 700; margin: 0; color: #333; }
+    .topper-meta { color: #555; margin: 0.2rem 0 0; }
+  </style>
+</head>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Result & Analysis</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / Result & Analysis
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h3>Faculty Coordinator</h3>
+        <div class="coordinator-card">
+          <img src="../Pages Information/Faculty/Faculty Profile Photo/Ananda M K .png" alt="Mr. Anada M K" />
+          <h4 style="margin: 0; color: #5b1f1f; font-size: 1.1rem;">Mr. Anada M K</h4>
+          <div class="faculty-designation">Assistant Professor</div>
+        </div>
+
+        <h2>Overview</h2>
+        <p>This page summarizes program outcomes through examination results, progression trends, and analytics to support continuous improvement.</p>
+
+        <div class="section-grid">
+          <div class="info-tile">
+            <strong>Semester-wise Result</strong>
+            <p>Pass percentage, distinctions, and subject-wise performance across recent semesters.</p>
+          </div>
+          <div class="info-tile" style="background:#fff;">
+            <strong>Year-over-Year Trends</strong>
+            <p>Comparative analysis of performance indicators to identify strengths and areas for improvement.</p>
+          </div>
+          <div class="info-tile">
+            <strong>Top Performers</strong>
+            <p>Recognition of students with outstanding academic achievements.</p>
+          </div>
+          <div class="info-tile" style="background:#fff;">
+            <strong>Actions & Interventions</strong>
+            <p>Academic support measures initiated based on analysis (remedial classes, mentoring, etc.).</p>
+          </div>
+        </div>
+
+        <h3 class="scheme-header">Select a scheme</h3>
+        <div class="pill-row" id="schemeRow">
+          <button class="pill-btn" data-scheme="2025" aria-pressed="false">2025</button>
+          <button class="pill-btn" data-scheme="2024" aria-pressed="false">2024</button>
+          <button class="pill-btn" data-scheme="2023" aria-pressed="false">2023</button>
+        </div>
+
+        <div id="semesterBlock" style="display:none;">
+          <div class="scheme-header" id="semesterTitle">Select semester</div>
+          <div class="semester-grid" id="semesterGrid">
+            <button class="semester-btn" data-semester="1" aria-pressed="false">1st Semester</button>
+            <button class="semester-btn" data-semester="2" aria-pressed="false">2nd Semester</button>
+            <button class="semester-btn" data-semester="3" aria-pressed="false">3rd Semester</button>
+            <button class="semester-btn" data-semester="4" aria-pressed="false">4th Semester</button>
+            <button class="semester-btn" data-semester="5" aria-pressed="false">5th Semester</button>
+            <button class="semester-btn" data-semester="6" aria-pressed="false">6th Semester</button>
+            <button class="semester-btn" data-semester="7" aria-pressed="false">7th Semester</button>
+            <button class="semester-btn" data-semester="8" aria-pressed="false">8th Semester</button>
+          </div>
+        </div>
+
+        <div class="toppers-panel" id="toppersPanel">
+          <div class="toppers-header" id="toppersHeader"></div>
+          <div class="topper-grid" id="topperGrid">
+
+            <div class="topper-card">
+              <img class="topper-photo" id="topper1Photo" src="../Index Page/GMU LOGO/gmu.png" alt="Topper 1" />
+              <div>
+                <p class="topper-name" id="topper1Name">Student 1</p>
+                <p class="topper-meta" id="topper1Sgpa">SGPA: </p>
+              </div>
+            </div>
+            <div class="topper-card">
+              <img class="topper-photo" id="topper2Photo" src="../Index Page/GMU LOGO/gmu.png" alt="Topper 2" />
+              <div>
+                <p class="topper-name" id="topper2Name">Student 2</p>
+                <p class="topper-meta" id="topper2Sgpa">SGPA: </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p id="noResultMsg" style="display: none; text-align: center; font-weight: 600; color: #555;">Result not yet announced</p>
+
+        <a href="../index.html" class="back-button">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const schemeRow = document.getElementById('schemeRow');
+      const semesterBlock = document.getElementById('semesterBlock');
+      const semesterGrid = document.getElementById('semesterGrid');
+      const toppersPanel = document.getElementById('toppersPanel');
+      const toppersHeader = document.getElementById('toppersHeader');
+
+      const t1Name = document.getElementById('topper1Name');
+      const t1Sgpa = document.getElementById('topper1Sgpa');
+      const t1Photo = document.getElementById('topper1Photo');
+      const t2Name = document.getElementById('topper2Name');
+      const t2Sgpa = document.getElementById('topper2Sgpa');
+      const t2Photo = document.getElementById('topper2Photo');
+      const noResultMsg = document.getElementById('noResultMsg');
+      const topperGrid = document.getElementById('topperGrid');
+
+      let selectedScheme = null;
+      let selectedSemester = null;
+
+      // Placeholder data structure. Replace values later when you provide real data.
+      const TOPPERS = {
+        '2023': {
+          '1': [
+            {name:'Zainab Rahil Quazi', sgpa:'9.95', photo:'../Pages Information/TOPPERS PHOTO/2023/Zainab Rahil Quazi.JPG'},
+            {name:'Sandeep S N', sgpa:'9.00', photo:'../Pages Information/TOPPERS PHOTO/2023/Sandeep S N.jpg'}
+          ],
+          '2': [
+            {name:'Zainab Rahil Quazi', sgpa:'10.00', photo:'../Pages Information/TOPPERS PHOTO/2023/Zainab Rahil Quazi.JPG'},
+            {name:'Sandeep S N', sgpa:'9.57', photo:'../Pages Information/TOPPERS PHOTO/2023/Sandeep S N.jpg'}
+          ],
+          '3': [
+            {name:'Zainab Rahil Quazi', sgpa:'10.00', photo:'../Pages Information/TOPPERS PHOTO/2023/Zainab Rahil Quazi.JPG'},
+            {name:'Akash C M', sgpa:'9.82', photo:'../Pages Information/TOPPERS PHOTO/2023/Akash C M.jpg'}
+          ],
+          '4': [
+            {name:'Zainab Rahil Quazi', sgpa:'10.00', photo:'../Pages Information/TOPPERS PHOTO/2023/Zainab Rahil Quazi.JPG'},
+            {name:'Akash C M', sgpa:'9.52', photo:'../Pages Information/TOPPERS PHOTO/2023/Akash C M.jpg'}
+          ]
+        },
+        '2024': {
+          '1': [
+            {name:'Likitha T D', sgpa:'9.82', photo:'../Pages Information/TOPPERS PHOTO/2024/LIKITHA D.png'},
+            {name:'T C M Kavana', sgpa:'9.35', photo:'../Pages Information/TOPPERS PHOTO/2024/T C M Kavana.jpg'}
+          ]
+        }
+      };
+
+      function setPressed(group, target){
+        [...group].forEach(btn => btn.setAttribute('aria-pressed', btn === target ? 'true' : 'false'));
+      }
+
+      function updateToppers(){
+        if(!selectedScheme || !selectedSemester) return;
+        toppersHeader.textContent = `Top 2 – Scheme ${selectedScheme}, Semester ${selectedSemester}`;
+        const list = (TOPPERS[selectedScheme] && TOPPERS[selectedScheme][selectedSemester]) || [];
+        const [a,b] = [list[0], list[1]];
+
+        if (list.length === 0) {
+          topperGrid.style.display = 'none';
+          noResultMsg.style.display = 'block';
+        } else {
+          topperGrid.style.display = 'grid';
+          noResultMsg.style.display = 'none';
+        }
+
+        if(a){
+          t1Name.textContent = a.name || 'Student 1';
+          t1Sgpa.textContent = `SGPA: ${a.sgpa || ''}`;
+          if(a.photo) t1Photo.src = a.photo;
+        } else {
+          t1Name.textContent = 'Student 1';
+          t1Sgpa.textContent = 'SGPA: ';
+          t1Photo.src = '../Index Page/GMU LOGO/gmu.png';
+        }
+        if(b){
+          t2Name.textContent = b.name || 'Student 2';
+          t2Sgpa.textContent = `SGPA: ${b.sgpa || ''}`;
+          if(b.photo) t2Photo.src = b.photo;
+        } else {
+          t2Name.textContent = 'Student 2';
+          t2Sgpa.textContent = 'SGPA: ';
+          t2Photo.src = '../Index Page/GMU LOGO/gmu.png';
+        }
+        toppersPanel.style.display = 'block';
+      }
+
+      schemeRow.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-scheme]');
+        if(!btn) return;
+        selectedScheme = btn.getAttribute('data-scheme');
+        setPressed(schemeRow.querySelectorAll('button[data-scheme]'), btn);
+        semesterBlock.style.display = 'block';
+        toppersPanel.style.display = 'none';
+        selectedSemester = null;
+        setPressed(semesterGrid.querySelectorAll('button[data-semester]'), null);
+      });
+
+      semesterGrid.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-semester]');
+        if(!btn) return;
+        selectedSemester = btn.getAttribute('data-semester');
+        setPressed(semesterGrid.querySelectorAll('button[data-semester]'), btn);
+        updateToppers();
+      });
+
+    })()
+  </script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

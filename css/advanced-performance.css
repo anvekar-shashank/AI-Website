@@ -1,0 +1,532 @@
+/* Advanced Performance Optimization CSS */
+/* Ultra-optimized CSS for smooth performance and zero lag */
+
+/* Critical Performance Base */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  overflow-x: hidden;
+}
+
+/* Hardware Acceleration for Critical Elements */
+.faculty-card,
+.achievement-modal,
+.site-header,
+.brand-strip {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Optimized Image Loading */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: bicubic;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.faculty-photo {
+  will-change: transform, opacity;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.faculty-photo:hover {
+  transform: translateZ(0) scale(1.02);
+}
+
+/* Grid Performance Optimization */
+.hod-grid,
+.associate-grid,
+.assistant-grid {
+  display: grid;
+  gap: 1.5rem;
+  contain: layout style paint;
+  will-change: contents;
+}
+
+.assistant-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.associate-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.hod-grid {
+  grid-template-columns: 1fr;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Faculty Card Performance */
+.faculty-card {
+  contain: layout style paint;
+  isolation: isolate;
+  transform: translateZ(0);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faculty-card:hover {
+  transform: translateZ(0) translateY(-2px);
+}
+
+/* Modal Performance Optimization */
+.achievement-modal {
+  contain: layout style paint;
+  isolation: isolate;
+  transform: translateZ(0);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.achievement-modal.active {
+  animation: modalFadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateZ(0) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+  }
+}
+
+/* Scroll Performance */
+.main-content {
+  contain: layout style paint;
+  overflow-anchor: none;
+}
+
+/* LinkedIn Icon Optimization */
+.faculty-linkedin svg {
+  will-change: transform;
+  transition: transform 0.15s ease-out;
+  transform: translateZ(0);
+}
+
+.faculty-linkedin:hover svg {
+  transform: translateZ(0) scale(1.1);
+}
+
+/* Text Rendering Optimization */
+.faculty-name,
+.faculty-designation {
+  text-rendering: optimizeSpeed;
+  font-display: swap;
+}
+
+/* Container Query Support */
+@supports (container-type: inline-size) {
+  .faculty-section {
+    container-type: inline-size;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .faculty-card,
+  .faculty-photo,
+  .faculty-linkedin svg {
+    will-change: auto;
+    transform: none !important;
+  }
+}
+
+/* High Performance Media Queries */
+@media (min-width: 768px) {
+  .assistant-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .assistant-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .associate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .assistant-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Print Optimization */
+@media print {
+  .faculty-card,
+  .achievement-modal,
+  .faculty-photo {
+    will-change: auto;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+}
+
+/* GPU Layer Creation for Smooth Scrolling */
+.faculty-section {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Optimize Focus States */
+.faculty-card:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+  transform: translateZ(0) translateY(-2px);
+}
+
+/* Critical Resource Hints */
+.faculty-photo[loading="lazy"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 200px 200px;
+}
+
+/* Memory Optimization */
+.achievement-modal:not(.active) {
+  content-visibility: hidden;
+  contain-intrinsic-size: 800px 600px;
+}
+
+/* ========================================
+   GALLERY MODAL OPTIMIZATION
+   ======================================== */
+
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, visibility;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.gallery-modal--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gallery-modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+.gallery-modal__container {
+  position: relative;
+  width: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-modal--active .gallery-modal__container {
+  transform: scale(1);
+}
+
+.gallery-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  flex-shrink: 0;
+}
+
+.gallery-modal__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.gallery-modal__close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.gallery-modal__close:hover {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.gallery-modal__content {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.gallery-modal__slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+.gallery-modal__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.gallery-modal__slide {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+}
+
+.gallery-modal__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+  image-rendering: crisp-edges;
+}
+
+.gallery-modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  will-change: transform, background-color;
+  z-index: 10;
+}
+
+.gallery-modal__nav:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-modal__nav--prev {
+  left: 20px;
+}
+
+.gallery-modal__nav--next {
+  right: 20px;
+}
+
+.gallery-modal__indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background: #f8f9fa;
+  flex-shrink: 0;
+}
+
+.gallery-modal__indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #dee2e6;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  will-change: transform, background-color;
+}
+
+.gallery-modal__indicator:hover {
+  background: #adb5bd;
+  transform: scale(1.2);
+}
+
+.gallery-modal__indicator.active {
+  background: #007bff;
+}
+
+/* Activity Card Enhancements */
+.activity-card {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.activity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.activity-card--active {
+  animation: cardFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gallery Slideshow Optimizations */
+.gallery-slideshow {
+  will-change: transform;
+  contain: layout style paint;
+  isolation: isolate;
+}
+
+.gallery-slideshow__track {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.gallery-slideshow img {
+  will-change: transform, opacity;
+  image-rendering: crisp-edges;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-slideshow img:not(.loaded) {
+  opacity: 0;
+}
+
+.gallery-slideshow img.loaded {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery-modal__container {
+    width: 95%;
+    max-height: 95%;
+  }
+  
+  .gallery-modal__header {
+    padding: 15px 20px;
+  }
+  
+  .gallery-modal__title {
+    font-size: 1.25rem;
+  }
+  
+  .gallery-modal__nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  
+  .gallery-modal__nav--prev {
+    left: 10px;
+  }
+  
+  .gallery-modal__nav--next {
+    right: 10px;
+  }
+  
+  .gallery-modal__indicators {
+    padding: 15px;
+    gap: 8px;
+  }
+  
+  .gallery-modal__indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* High Performance Mode */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-modal,
+  .gallery-modal__container,
+  .gallery-modal__track,
+  .gallery-modal__nav,
+  .gallery-modal__indicator,
+  .activity-card {
+    transition: none !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+}

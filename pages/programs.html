@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programs - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+      font-weight: 700;
+    }
+    .breadcrumb {
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #5b1f1f;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #472222;
+    }
+    .program-card {
+      padding: 2rem;
+      background: #f8f9fa;
+      border-left: 4px solid #5b1f1f;
+      border-radius: 4px;
+      margin-bottom: 2rem;
+    }
+    .program-card h3 {
+      margin-top: 0;
+      color: #5b1f1f;
+    }
+    .documents-section {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .documents-section h3 {
+      text-align: center;
+      color: #5b1f1f;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+    .documents-container {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .document-card {
+      flex: 1;
+      min-width: 280px;
+      max-width: 450px;
+      padding: 2.5rem 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    .document-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #5b1f1f, #8b3a3a);
+    }
+    .document-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(91, 31, 31, 0.2);
+      border-color: #5b1f1f;
+    }
+    .document-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, #5b1f1f, #8b3a3a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: white;
+      box-shadow: 0 4px 12px rgba(91, 31, 31, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .document-card:hover .document-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .document-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #5b1f1f;
+      margin-bottom: 1rem;
+    }
+    .document-description {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .document-link {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      background: linear-gradient(135deg, #5b1f1f, #8b3a3a);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(91, 31, 31, 0.2);
+    }
+    .document-link:hover {
+      background: linear-gradient(135deg, #8b3a3a, #5b1f1f);
+      box-shadow: 0 6px 16px rgba(91, 31, 31, 0.3);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .documents-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .document-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Programs Offered</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / Programs
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h2>Academic Programs</h2>
+        <p>The Department of Electronics and Communication Engineering offers comprehensive programs designed to prepare students for successful careers in the rapidly evolving field of electronics and communication technology.</p>
+
+        <div class="program-card">
+          <h3>B.Tech. in Electronics and Communication Engineering</h3>
+          <p><strong>Duration:</strong> 4 Years (8 Semesters)</p>
+          <p><strong>Eligibility:</strong> 10+2 with Physics, Chemistry, and Mathematics </p>
+          <p><strong>Program Overview:</strong></p>
+          <p>Our flagship undergraduate program provides comprehensive training in electronics and communication engineering. The curriculum is designed to balance theoretical knowledge with practical skills, preparing graduates for diverse career opportunities in industry and research.</p>
+          
+          <h4>Key Features:</h4>
+          <ul>
+            <li>Industry-aligned curriculum with regular updates</li>
+            <li>State-of-the-art laboratory facilities</li>
+            <li>Mandatory internships and industry projects</li>
+            <li>Research opportunities from second year onwards</li>
+            <li>International exchange and collaboration programs</li>
+          </ul>
+
+          <h4>Specialization Tracks:</h4>
+          <ul>
+            <li>VLSI Design and Embedded Systems</li>
+            <li>Communication Systems and Networks</li>
+            <li>Signal and Image Processing</li>
+            <li>IoT and Automation</li>
+            <li>Robotics and AI in Electronics</li>
+          </ul>
+        </div>
+
+        <h3>Co-Curricular Programs</h3>
+        <ul>
+          <li><strong>Certification Courses:</strong> Industry-recognized certifications in embedded systems, IoT, VLSI tools</li>
+          <li><strong>Workshop Series:</strong> Regular hands-on workshops on emerging technologies</li>
+          <li><strong>Hackathons:</strong> Annual Ignitron hackathon and participation in national-level competitions</li>
+          <li><strong>Technical Clubs:</strong> Student-run clubs for robotics, electronics, coding, and innovation</li>
+          <li><strong>Skill Development:</strong> Soft skills, communication, and leadership training</li>
+        </ul>
+
+        <h3>Career Pathways</h3>
+        <p>Our graduates pursue diverse career paths including:</p>
+        <ul>
+          <li>VLSI Design Engineer</li>
+          <li>Embedded Systems Developer</li>
+          <li>Communication Systems Engineer</li>
+          <li>IoT Solutions Architect</li>
+          <li>Signal Processing Specialist</li>
+          <li>Electronics Hardware Engineer</li>
+          <li>Research and Development</li>
+          <li>Higher Studies (M.Tech./Ph.D.)</li>
+          <li>Entrepreneurship and Startups</li>
+        </ul>
+
+        <!-- Program & Course Documents Section -->
+        <div class="documents-section">
+          <h3>📚 Program & Course Documents</h3>
+          <div class="documents-container">
+            <!-- Program Document -->
+            <div class="document-card">
+              <div class="document-icon">📄</div>
+              <div class="document-title">Program Document</div>
+              <div class="document-description">
+                Comprehensive program structure, objectives, and outcomes for ECE 2025 Scheme
+              </div>
+              <a href="https://gmu.ac.in/pdfview_public%5Cassets%5Cdownloadmaterial%5Cacademics%5CFACULTIES%5CFET%5C2025%20Scheme%5C1-ECE-Program%20Document%202025.pdf" target="_blank" class="document-link">
+                View Program Document →
+              </a>
+            </div>
+
+            <!-- Course Document -->
+            <div class="document-card">
+              <div class="document-icon">📖</div>
+              <div class="document-title">Course Document</div>
+              <div class="document-description">
+                Detailed course syllabus, curriculum, and learning outcomes for ECE 2025 Scheme
+              </div>
+              <a href="https://gmu.ac.in/pdfview_assets%5Cdownloadmaterial%5CUG%20Programs%5Cviewing%5Ccourse%5C2024%5C1-ECE-Cource%20Document%202025%20Scheme.pdf" target="_blank" class="document-link">
+                View Course Document →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="../index.html" class="back-button">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

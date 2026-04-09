@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+      font-weight: 700;
+    }
+    .breadcrumb {
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #5b1f1f;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #472222;
+    }
+    .alumni-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      border-top: 4px solid #5b1f1f;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #5b1f1f;
+    }
+    .stat-label {
+      color: #666;
+      margin-top: 0.5rem;
+    }
+    .alumni-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .alumni-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      padding: 2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .alumni-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+    .alumni-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #5b1f1f;
+      margin-bottom: 1rem;
+    }
+    .alumni-card h4 {
+      margin: 0.5rem 0;
+      color: #5b1f1f;
+      font-size: 1.2rem;
+    }
+    .alumni-card p {
+      margin: 0.25rem 0;
+      color: #555;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+    .alumni-card .linkedin-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #0077b5;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .alumni-card .linkedin-link:hover {
+      background-color: #005582;
+    }
+  </style>
+</head>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Alumni Network</h1>
+      <div class="breadcrumb">
+        <a href="../index.html#">Home</a> / Alumni
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h3>Alumni Coordinator</h3>
+        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; text-align: center; margin: 1.5rem 0; display: flex; flex-direction: column; align-items: center;">
+          <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 0.75rem;">
+            <img src="../Pages Information/Faculty/Faculty Profile Photo/MANJULA B K.jpg" alt="Mrs. Manjula B K" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid #5b1f1f; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top: 8px;" />
+          </div>
+          <h4 style="margin: 0; color: #5b1f1f; font-size: 1.1rem;">Mrs. Manjula B K</h4>
+          <div class="faculty-designation"> Assistant Professor</div>
+        </div>
+
+        <h2>Alumni</h2>
+        <p>The alumni of the Department of Electronics and Communication Engineering are a strong pillar of support and inspiration for the department. Since its inception, the department has produced graduates who have established successful careers in core electronics industries, IT, telecommunications, research organizations, entrepreneurship, and higher studies in reputed institutions in India and abroad.</p>
+
+        <p>The alumni network serves as a valuable resource by contributing to departmental growth through knowledge sharing, guest lectures, mentoring, internships, and placement opportunities for current students. Alumni also play a key role in bridging the gap between industry and academia by providing insights into emerging trends, skill requirements, and career guidance.</p>
+        <h2>Our Alumni</h2>
+        <div class="alumni-grid">
+          <div class="alumni-card">
+            <img src="../Pages Information/ALUMNI/ANUSHA D R.jpg" alt="Anusha D R" />
+            <h4>Anusha D R</h4>
+            <p>anusha.dr10@gmail.com</p>
+            <p>+91 9844976006</p>
+            <a href="http://www.linkedin.com/in/anusha-d-r" class="linkedin-link" target="_blank">LinkedIn</a>
+          </div>
+          <div class="alumni-card">
+            <img src="../Pages Information/ALUMNI/GURUSHANT MUTTEPPAGOL.jpg" alt="Gurushant mutteppagol" />
+            <h4>Gurushant Mutteppagol</h4>
+            <p>gmm.gurushant@outlook.com</p>
+            <p>+91 9066077166</p>
+            <a href="https://in.linkedin.com/in/gurushant-mutteppagol-60b41012a" class="linkedin-link" target="_blank">LinkedIn</a>
+          </div>
+          <div class="alumni-card">
+            <img src="../Pages Information/ALUMNI/VIKRANTH L B.jpg" alt="Vikranth L B" />
+            <h4>Vikranth L B</h4>
+            <p>vicki123123@gmail.com</p>
+            <p>+91 8892931097</p>
+            <a href="https://www.linkedin.com/in/vikranth-lb-8638bb1b7/?originalSubdomain=in" class="linkedin-link" target="_blank">LinkedIn</a>
+          </div>
+          <div class="alumni-card">
+            <img src="../Pages Information/ALUMNI/SUJAYENDRA S.jpg" alt="Sujayendra S" />
+            <h4>Sujayendra S</h4>
+            <p>sujaysr885@gmail.com</p>
+            <p>+91 9739035885</p>
+            <a href="https://www.linkedin.com/in/sujayendra-shrinivasa-murthy-csm%C2%AE-cspo%C2%AE-936385110?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BRfvaLW49SVOkCO0ReUtD2A%3D%3D" class="linkedin-link" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <p>Regular alumni interactions and meets foster a sense of belonging, strengthen professional networking, and promote collaboration in research, innovation, and societal development. The achievements of alumni continue to enhance the reputation of the department and inspire present and future batches of students to excel.</p>
+        <a href="../index.html" class="back-button">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

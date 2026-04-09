@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Internships & Placements - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+    }
+    .breadcrumb {
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #5b1f1f;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #472222;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      border-top: 4px solid #5b1f1f;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #5b1f1f;
+    }
+    .stat-label {
+      color: #666;
+      margin-top: 0.5rem;
+    }
+    .company-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .company-item {
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Gallery Item Hover Effects */
+    .internship-gallery-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .internship-gallery-item:hover .gallery-image-container img {
+      transform: scale(1.1);
+    }
+
+    .internship-gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    /* Enhanced Internship Gallery Modal Styles */
+    .internship-gallery-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .internship-gallery-modal[aria-hidden="true"] {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .internship-modal__backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .internship-modal__content {
+      position: relative;
+      width: 95%;
+      max-width: 1200px;
+      max-height: 90vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+      animation: slideInUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .internship-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 10;
+    }
+
+    .internship-modal__close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+    }
+
+    .internship-modal__header {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: white;
+    }
+
+    .internship-modal__title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .internship-modal__title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+
+    .internship-modal__subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin: 1rem 0 0 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .internship-gallery-container {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .internship-batch-section {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .batch-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .batch-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: white;
+      margin: 0 0 1rem 0;
+    }
+
+    .batch-description {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .internship-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .internship-gallery-item {
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .internship-gallery-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-image-container {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .gallery-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .internship-gallery-item:hover .gallery-image-container img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(102, 126, 234, 0.9) 0%,
+        rgba(118, 75, 162, 0.9) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .internship-gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay__icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    .gallery-overlay__content {
+      color: white;
+    }
+
+    .gallery-overlay__title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-overlay__description {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.3;
+    }
+
+    /* Premium Lightbox Modal Styles */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .lightbox-modal[aria-hidden="true"] {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .lightbox-modal__backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .lightbox-modal__content {
+      position: relative;
+      width: 95%;
+      max-width: 1000px;
+      max-height: 90vh;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+      animation: scaleIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .lightbox-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 10;
+    }
+
+    .lightbox-modal__close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+    }
+
+    .lightbox-modal__nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-modal__nav:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-modal__nav--prev {
+      left: 2rem;
+    }
+
+    .lightbox-modal__nav--next {
+      right: 2rem;
+    }
+
+    .lightbox-modal__image-container {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-modal__image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      animation: fadeInScale 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .lightbox-modal__loading {
+      position: absolute;
+      color: white;
+      font-size: 1.1rem;
+      display: none;
+    }
+
+    .lightbox-modal__footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 70%,
+        transparent 100%
+      );
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .lightbox-modal__counter {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .lightbox-modal__caption {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      text-align: right;
+      max-width: 300px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .internship-modal__content {
+        padding: 1.5rem;
+        margin: 1rem;
+        max-height: 95vh;
+      }
+
+      .internship-modal__title {
+        font-size: 2rem;
+      }
+
+      .internship-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .lightbox-modal__content {
+        margin: 1rem;
+        width: calc(100% - 2rem);
+      }
+
+      .lightbox-modal__nav {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+
+      .lightbox-modal__nav--prev {
+        left: 1rem;
+      }
+
+      .lightbox-modal__nav--next {
+        right: 1rem;
+      }
+
+      .lightbox-modal__image-container {
+        height: 60vh;
+      }
+
+      .lightbox-modal__footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      .lightbox-modal__caption {
+        text-align: center;
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .internship-modal__title {
+        font-size: 1.8rem;
+      }
+
+      .batch-title {
+        font-size: 1.5rem;
+      }
+
+      .gallery-image-container {
+        height: 200px;
+      }
+    }
+
+    /* Gallery Section Styles - Matching Student Placement Page */
+    .gallery-section {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .gallery-section h3 {
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-align: center;
+      position: relative;
+    }
+    .gallery-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #5b1f1f, #8b4513);
+      border-radius: 2px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      background: white;
+    }
+    .gallery-item:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(91, 31, 31, 0.9), rgba(139, 69, 19, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-overlay h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .gallery-overlay p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    .view-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+    /* Lightbox Styles - Matching Student Placement Page */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      animation: fadeInScale 0.3s ease-out;
+    }
+    .lightbox .close {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      background: rgba(255,255,255,0.1);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .lightbox .close:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.1);
+    }
+    .lightbox .prev,
+    .lightbox .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 45px;
+      cursor: pointer;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    .lightbox .prev:hover,
+    .lightbox .next:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .lightbox .prev {
+      left: 30px;
+    }
+    .lightbox .next {
+      right: 30px;
+    }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 1.1rem;
+      background: rgba(0,0,0,0.6);
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    /* Internship Resources Section */
+    .internship-resources {
+      margin: 3rem 0;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    .internship-resources h3 {
+      text-align: center;
+      color: #5b1f1f;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .internship-resources > p {
+      text-align: center;
+      color: #666;
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .internship-resource-card {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    .internship-resource-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #5b1f1f, #667eea, #764ba2);
+    }
+    .internship-resource-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(91, 31, 31, 0.25);
+      border-color: #5b1f1f;
+    }
+    .internship-resource-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: white;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      transition: all 0.4s ease;
+    }
+    .internship-resource-card:hover .internship-resource-icon {
+      transform: scale(1.15) rotate(-10deg);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+    }
+    .internship-resource-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #5b1f1f;
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+    }
+    .internship-resource-description {
+      font-size: 1.05rem;
+      color: #666;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .internship-resource-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 1.1rem 3rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.4s ease;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    }
+    .internship-resource-link:hover {
+      background: linear-gradient(135deg, #764ba2, #667eea);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      transform: translateY(-3px);
+    }
+    .internship-resource-link::after {
+      content: '→';
+      font-size: 1.4rem;
+      transition: transform 0.3s ease;
+    }
+    .internship-resource-link:hover::after {
+      transform: translateX(6px);
+    }
+    @media (max-width: 768px) {
+      .internship-resource-card {
+        padding: 2rem 1.5rem;
+      }
+      .internship-resource-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Student Internships</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / Student Internships 
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h3>Internship Coordinators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+          <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; text-align: center;">
+            <img src="../Pages Information/Faculty/Faculty Profile Photo/ARUN KUMAR K M.jpeg" alt="Dr. Arun Kumar K M" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto;" />
+            <h4 style="margin-top: 0; color: #5b1f1f;">Dr. Arun Kumar K M</h4>
+            <div class="faculty-designation">Associate Professor</div>
+          </div>
+        </div>
+
+        <h2>Internship Program Overview</h2>
+        <p>The internship program for Electronics and Communication Engineering students aims to bridge the gap between academic learning and industry practices. It provides students with hands-on exposure to real-world applications in areas such as VLSI design, embedded systems, communication technologies, signal processing, automation, IoT, and networking. Through internships, students gain practical knowledge, professional skills, and industry-relevant experience that complement their classroom learning.</p>
+        <p>Internships also enhance problem-solving, teamwork, communication, and adaptability skills while allowing students to understand workplace culture and professional ethics. They serve as a platform for students to apply theoretical concepts, work on live projects, interact with industry experts, and develop innovative solutions. Ultimately, the internship experience prepares students for employability, entrepreneurship, higher studies, and lifelong learning in the dynamic field of electronics and communication.</p>
+
+        <!-- Internship Resources Section -->
+        <div class="internship-resources">
+          <h3>🎓 Industry Connected Internship Program</h3>
+          <p>Access our comprehensive industry-connected internship portal to explore real-world opportunities and gain hands-on experience with leading companies</p>
+          
+          <div class="internship-resource-card">
+            <div class="internship-resource-icon">🏭</div>
+            <div class="internship-resource-title">Industry Connected Internships</div>
+            <div class="internship-resource-description">
+              Explore curated internship opportunities with industry partners, gain practical experience in cutting-edge technologies, and build your professional network through our LEAP platform
+            </div>
+            <a href="https://leap.gmu.ac.in/leap/students/course.php?category=Industry+Connected+Internships" target="_blank" class="internship-resource-link">
+              Explore Internship Opportunities
+            </a>
+          </div>
+        </div>
+
+        <!-- Internship Gallery Section -->
+        <div class="gallery-section">
+          <h3>Student Internship Gallery</h3>
+          <p>Our comprehensive internship program provides ECE students with valuable industry exposure and practical learning experiences. Through partnerships with leading companies, students gain hands-on experience in cutting-edge technologies and real-world applications.</p>
+          <p>These internship opportunities focus on practical application of engineering knowledge, problem-solving techniques, and professional development. Students engage in industry-specific projects, technical assessments, and skill-building activities that prepare them for competitive career opportunities.</p>
+          <p>The program emphasizes real-world scenario handling, technical expertise development, and industry readiness, ensuring our graduates are well-prepared to excel in their chosen career paths and contribute effectively to technological innovation.</p>
+          <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(0)">
+              <img src="../Pages Information/STUDENT INTERNSHIP/ACUBIQ/ACUBIQ 1.jpg" alt="ACUBIQ Internship - Industry Orientation" />
+              <div class="gallery-overlay">
+                <div class="view-icon">🏭</div>
+                <h4>ACUBIQ Internship</h4>
+              </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(1)">
+              <img src="../Pages Information/STUDENT INTERNSHIP/ACUBIQ/ACUBIQ 2.jpg" alt="ACUBIQ Internship - Web Development" />
+              <div class="gallery-overlay">
+                <div class="view-icon">💻</div>
+                <h4>ACUBIQ Internship</h4>
+              </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(2)">
+              <img src="../Pages Information/STUDENT INTERNSHIP/IISC/IISC-4.jpg" alt="IISc Banglore Internship - Seed Germination" />
+              <div class="gallery-overlay">
+                <div class="view-icon">🌱</div>
+                <h4>IISc Banglore Internship</h4>
+              </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(3)">
+              <img src="../Pages Information/STUDENT INTERNSHIP/IISC/IISC-3.jpg" alt="IISc Banglore Internship - Implementation" />
+              <div class="gallery-overlay">
+                <div class="view-icon">🏭</div>
+                <h4>IISc Banglore Internship</h4>
+              </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(4)">
+              <img src="../Pages Information/STUDENT INTERNSHIP/IISC/IISC-5.jpg" alt="IISc Banglore Internship - Implementation" />
+              <div class="gallery-overlay">
+                <div class="view-icon">🔧</div>
+                <h4>IISc Banglore Internship</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+          <span class="close" onclick="closeLightbox()">&times;</span>
+          <img id="lightbox-img" src="" alt="Internship Photo" />
+          <div class="lightbox-counter" id="lightbox-counter">1 / 4</div>
+          <div class="prev" onclick="changeSlide(-1)">&#10094;</div>
+          <div class="next" onclick="changeSlide(1)">&#10095;</div>
+        </div>
+
+        <a href="../index.html" class="back-button">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const images = [
+      '../activities/STUDENT INTERNSHIP/ACUBIQ/ACUBIQ 1.jpg',
+      '../activities/STUDENT INTERNSHIP/ACUBIQ/ACUBIQ 2.jpg',
+      '../activities/STUDENT INTERNSHIP/AES Company/AES Company 2.jpg',
+      '../activities/STUDENT INTERNSHIP/AES Company/AES Company 1.jpg'
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById('lightbox-img').src = images[currentIndex];
+      updateCounter();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+      } else if (currentIndex >= images.length) {
+        currentIndex = 0;
+      }
+      document.getElementById('lightbox-img').src = images[currentIndex];
+      updateCounter();
+    }
+
+    function updateCounter() {
+      document.getElementById('lightbox-counter').textContent = `${currentIndex + 1} / ${images.length}`;
+    }
+
+    // Close lightbox when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('lightbox').classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          changeSlide(-1);
+        } else if (e.key === 'ArrowRight') {
+          changeSlide(1);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IQAC - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+      font-weight: 700;
+    }
+    .breadcrumb {
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #5b1f1f;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #472222;
+    }
+    .coordinator-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex: 1;
+      min-width: 250px;
+      max-width: 350px;
+    }
+    .coordinator-member:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .coordinator-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #5b1f1f;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    .coordinator-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .coordinator-name {
+      margin: 0;
+      color: #5b1f1f;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .coordinators-section {
+      margin-bottom: 3rem;
+    }
+    .coordinators-section h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #5b1f1f;
+    }
+    @media (max-width: 768px) {
+      .coordinators-section > div {
+        flex-direction: column !important;
+        align-items: center;
+      }
+      .coordinator-member {
+        max-width: 100%;
+        min-width: auto;
+      }
+      .coordinator-photo {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    .audit-section {
+      margin-top: 2rem;
+    }
+    .audit-section h3 {
+      color: #5b1f1f;
+      margin-bottom: 0.6rem;
+    }
+    .audit-subtext {
+      color: #666;
+      margin: 0 0 1rem 0;
+    }
+    .audit-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .audit-card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .audit-title {
+      font-weight: 700;
+      color: #333;
+      margin: 0;
+    }
+    .audit-meta { color: #777; font-size: 0.92rem; }
+    .audit-actions { margin-top: 0.2rem; display: flex; gap: 0.6rem; }
+    .audit-btn {
+      padding: 0.6rem 1rem;
+      background: linear-gradient(135deg, #5b1f1f, #7a2b2b);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.25s ease;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+    .audit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.16); background: linear-gradient(135deg, #6b2626, #8a3333); }
+    /* Modal removed */
+  </style>
+</head>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Internal Quality Assurance Cell (IQAC)</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / IQAC
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h2>Internal Quality Assurance Cell</h2>
+        <p>The Internal Quality Assurance Cell (IQAC) of the ECE Department works in coordination with the university-level IQAC to ensure continuous quality improvement in all academic and administrative processes. IQAC serves as a nodal agency for planned and integrated quality enhancement initiatives.</p>
+
+        <div class="coordinators-section">
+          <h2>IQAC Department Coordinators</h2>
+
+          <!-- Coordinators displayed side by side -->
+          <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+            <!-- Coordinator 1 -->
+            <div class="coordinator-member">
+              <div class="coordinator-photo">
+                <img src="../Pages Information/Faculty/Faculty Profile Photo/Chetan B V.jpg" alt="Mr. Chetan B V">
+              </div>
+              <h4 class="coordinator-name">Mr. Chetan B V</h4>
+              <div class="faculty-designation"> Assistant Professor</div>
+            </div>
+
+            <!-- Coordinator 2 -->
+            <div class="coordinator-member">
+              <div class="coordinator-photo">
+                <img src="../Pages Information/Faculty/Faculty Profile Photo/DEEPIKA V B.png" alt="Mrs. Deepika V B">
+              </div>
+              <h4 class="coordinator-name">Ms. Deepika V B</h4>
+              <div class="faculty-designation"> Assistant Professor</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Objectives of IQAC</h3>
+        <ul>
+          <li>Ensure timely, efficient, and progressive performance of academic and administrative tasks</li>
+          <li>Develop quality benchmarks and parameters for various academic activities</li>
+          <li>Facilitate creation of learner-centric environment conducive to quality education</li>
+          <li>Arrange for feedback from students, parents, and stakeholders on quality-related processes</li>
+          <li>Disseminate information on quality parameters of higher education</li>
+          <li>Document various programs and activities leading to quality improvement</li>
+          <li>Act as a nodal agency for coordinating quality-related activities</li>
+          <li>Develop and apply quality benchmarks for various activities</li>
+        </ul>
+
+        <h3>IQAC Functions</h3>
+
+        <div class="quality-card">
+          <h4>Academic Quality Enhancement</h4>
+          <ul>
+            <li>Regular monitoring of teaching-learning processes</li>
+            <li>Faculty development programs and workshops</li>
+            <li>Curriculum review and updates</li>
+            <li>Innovative teaching methodologies</li>
+            <li>Student performance analysis and improvement strategies</li>
+          </ul>
+        </div>
+
+        <div class="quality-card">
+          <h4>Infrastructure Development</h4>
+          <ul>
+            <li>Assessing laboratory and facility requirements</li>
+            <li>Recommending upgrades and new equipment</li>
+            <li>Ensuring optimal utilization of resources</li>
+            <li>Maintaining quality standards in facilities</li>
+          </ul>
+        </div>
+
+        <div class="quality-card">
+          <h4>Feedback & Assessment</h4>
+          <ul>
+            <li>Student feedback on teaching and courses</li>
+            <li>Alumni feedback on curriculum relevance</li>
+            <li>Employer feedback on graduate competencies</li>
+            <li>Parent feedback on overall development</li>
+            <li>Action taken reports on feedback received</li>
+          </ul>
+        </div>
+
+        <h3>Quality Initiatives</h3>
+
+        <h4>Teaching-Learning Enhancement</h4>
+        <ul>
+          <li><strong>Smart Classrooms:</strong> ICT-enabled teaching spaces</li>
+          <li><strong>Learning Management System:</strong> Online course materials and resources</li>
+          <li><strong>Flipped Classroom:</strong> Innovative pedagogical approaches</li>
+          <li><strong>Peer Learning:</strong> Student-led tutorials and study groups</li>
+          <li><strong>Guest Lectures:</strong> Industry experts and academic leaders</li>
+        </ul>
+
+        <h4>Assessment Reforms</h4>
+        <ul>
+          <li>Continuous internal assessment system</li>
+          <li>Outcome-based evaluation methods</li>
+          <li>Project-based assessments</li>
+          <li>Transparent evaluation processes</li>
+          <li>Timely declaration of results</li>
+        </ul>
+
+        <h4>Faculty Development</h4>
+        <ul>
+          <li>Regular faculty training programs (FDPs)</li>
+          <li>Workshops on emerging technologies</li>
+          <li>Research methodology workshops</li>
+          <li>Soft skills and communication training</li>
+          <li>Industry interaction and internships</li>
+        </ul>
+
+        <h3>Quality Monitoring Mechanisms</h3>
+
+        <div class="quality-card">
+          <h4>Academic Audit</h4>
+          <p>Regular internal audits to assess:</p>
+          <ul>
+            <li>Completion of syllabus</li>
+            <li>Conduct of examinations and evaluations</li>
+            <li>Laboratory utilization</li>
+            <li>Student attendance and performance</li>
+            <li>Faculty workload and productivity</li>
+          </ul>
+        </div>
+
+        <div class="quality-card">
+          <h4>Performance Indicators</h4>
+          <p>Key metrics monitored by IQAC:</p>
+          <ul>
+            <li>Student pass percentage and academic performance</li>
+            <li>Faculty publications and research output</li>
+            <li>Placement and higher education statistics</li>
+            <li>Student participation in co-curricular activities</li>
+            <li>Alumni achievements and contributions</li>
+          </ul>
+        </div>
+
+        <h3>Documentation & Reports</h3>
+        <ul>
+          <li><strong>Annual Quality Assurance Report (AQAR):</strong> Comprehensive yearly report</li>
+          <li><strong>Feedback Analysis Reports:</strong> Quarterly analysis and action plans</li>
+          <li><strong>Academic Audit Reports:</strong> Semester-wise performance reviews</li>
+          <li><strong>Best Practices Documentation:</strong> Innovative initiatives and success stories</li>
+          <li><strong>Action Taken Reports:</strong> Implementation of recommendations</li>
+        </ul>
+
+        <h3>Accreditation Support</h3>
+        <p>IQAC plays a crucial role in accreditation processes:</p>
+        <ul>
+          <li>Preparation for NBA accreditation</li>
+          <li>NAAC assessment and evaluation</li>
+          <li>Continuous documentation of quality parameters</li>
+          <li>Self-assessment reports and gap analysis</li>
+          <li>Implementation of accreditation recommendations</li>
+        </ul>
+
+        <h3>Stakeholder Engagement</h3>
+
+        <div class="quality-card">
+          <h4>Student Engagement</h4>
+          <ul>
+            <li>Regular feedback collection</li>
+            <li>Student representation in committees</li>
+            <li>Grievance redressal mechanism</li>
+            <li>Academic and career counseling</li>
+          </ul>
+        </div>
+
+        <div class="quality-card">
+          <h4>Industry Collaboration</h4>
+          <ul>
+            <li>Industry advisory board inputs</li>
+            <li>Curriculum alignment with industry needs</li>
+            <li>Joint research and development projects</li>
+            <li>Internship and placement partnerships</li>
+          </ul>
+        </div>
+
+        <div class="quality-card">
+          <h4>Alumni Network</h4>
+          <ul>
+            <li>Alumni feedback on program effectiveness</li>
+            <li>Mentorship programs</li>
+            <li>Guest lectures and workshops</li>
+            <li>Collaborative initiatives</li>
+          </ul>
+        </div>
+
+        <h3>Recent Quality Initiatives</h3>
+        <ul>
+          <li>Implementation of Outcome-Based Education (OBE) framework</li>
+          <li>Integration of MOOC courses in curriculum</li>
+          <li>Enhanced laboratory facilities with modern equipment</li>
+          <li>Digital library resources and online databases</li>
+          <li>Student mentoring and support systems</li>
+          <li>Industry-aligned project-based learning</li>
+        </ul>
+
+        <h3>Continuous Improvement Cycle</h3>
+        <ol>
+          <li><strong>Plan:</strong> Set quality objectives and develop action plans</li>
+          <li><strong>Do:</strong> Implement quality initiatives and programs</li>
+          <li><strong>Check:</strong> Monitor performance through feedback and audits</li>
+          <li><strong>Act:</strong> Take corrective actions and improve processes</li>
+        </ol>
+
+        <div class="audit-section">
+          <h3>IQAC Audits</h3>
+          <p class="audit-subtext">Latest audit documents. Click to view in a popup. This list can be updated after every audit.</p>
+          <div class="audit-list" id="auditList"></div>
+        </div>
+
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Regular faculty-student interaction sessions</li>
+          <li>Peer observation of teaching</li>
+          <li>Industry expert lectures and workshops</li>
+          <li>Student-centric learning approaches</li>
+          <li>Comprehensive mentoring system</li>
+          <li>Research and innovation promotion</li>
+        </ul>
+
+        <a href="../index.html" class="back-button">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal removed: IQAC documents open in new tab -->
+
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    (function(){
+      const auditList = document.getElementById('auditList');
+      
+
+      const audits = [
+        { title: 'IQAC Audit - Aug 2025', meta: 'August 2025', url: '../Pages%20Information/IQAC/IQAC_Aug_2025.pdf' }
+      ];
+
+      function setIframeUrl(url){
+        const isHttp = /^https?:\/\//i.test(url);
+        const isPdf = /\.pdf($|\?)/i.test(url);
+        let viewerUrl = url;
+        if (isPdf && !isHttp) {
+          viewerUrl += '#view=FitH';
+        } else if (isPdf && isHttp) {
+          viewerUrl = 'https://docs.google.com/gview?embedded=true&url=' + encodeURIComponent(url);
+        }
+        window.open(viewerUrl, '_blank', 'noopener');
+      }
+
+      
+
+      function renderAudits(){
+        auditList.innerHTML = '';
+        audits.forEach(doc => {
+          const card = document.createElement('div');
+          card.className = 'audit-card';
+          const title = document.createElement('div');
+          title.className = 'audit-title';
+          title.textContent = doc.title;
+          const meta = document.createElement('div');
+          meta.className = 'audit-meta';
+          meta.textContent = doc.meta || '';
+          const actions = document.createElement('div');
+          actions.className = 'audit-actions';
+          const viewBtn = document.createElement('button');
+          viewBtn.type = 'button';
+          viewBtn.className = 'audit-btn';
+          viewBtn.textContent = 'View Document';
+          viewBtn.addEventListener('click', () => setIframeUrl(doc.url));
+          actions.appendChild(viewBtn);
+          card.appendChild(title);
+          card.appendChild(meta);
+          card.appendChild(actions);
+          auditList.appendChild(card);
+        });
+      }
+
+      renderAudits();
+    })();
+  </script>
+</body>
+</html>

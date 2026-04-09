@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industrial Visits - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+      font-weight: 700;
+    }
+    .breadcrumb {
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: #333;
+    }
+    .content-section h2,
+    .content-section h3,
+    .content-section h4,
+    .content-section p,
+    .content-section ul,
+    .content-section li {
+      color: #333;
+    }
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #5b1f1f;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #472222;
+    }
+    .coordinator-section {
+      margin-bottom: 3rem;
+    }
+    .coordinator-blocks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .coordinator-block {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .coordinator-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 4px solid #5b1f1f;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .coordinator-name {
+      margin: 0.5rem 0;
+      color: #5b1f1f;
+      font-size: 1.3rem;
+    }
+    .coordinator-role {
+      margin: 0;
+      color: #666;
+      font-size: 1rem;
+    }
+    .gallery-section {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .gallery-section h3 {
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-align: center;
+      position: relative;
+    }
+    .gallery-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #5b1f1f, #8b4513);
+      border-radius: 2px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      background: white;
+    }
+    .gallery-item:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(91, 31, 31, 0.9), rgba(139, 69, 19, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-overlay h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .gallery-overlay p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    .view-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+    /* Lightbox Enhancements */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      animation: fadeInScale 0.3s ease-out;
+    }
+    .lightbox .close {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      background: rgba(255,255,255,0.1);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .lightbox .close:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.1);
+    }
+    .lightbox .prev,
+    .lightbox .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 45px;
+      cursor: pointer;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    .lightbox .prev:hover,
+    .lightbox .next:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .lightbox .prev {
+      left: 30px;
+    }
+    .lightbox .next {
+      right: 30px;
+    }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 1.1rem;
+      background: rgba(0,0,0,0.6);
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Industrial Visits</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / Industrial Visits
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h3>Industrial Visit Coordinators</h3>
+        <div class="coordinator-blocks">
+          <div class="coordinator-block">
+            <img src="../Pages Information/Faculty/Faculty Profile Photo/ARUN KUMAR K M.jpeg" alt="Dr. Arun Kumar K M" class="coordinator-image" />
+            <h4 class="coordinator-name">Dr. Arun Kumar K M</h4>
+            <div class="faculty-designation"> Associate Professor</div>
+          </div>
+        </div>
+
+        <h2>Industrial Visits Program</h2>
+        <p>Industrial visits provide Electronics and Communication Engineering students with valuable exposure to real-world industrial environments, bridging the gap between academic knowledge and practical applications. By observing live processes, advanced technologies, and modern equipment in industries such as telecommunications, semiconductor manufacturing, embedded systems, automation, broadcasting, and electronics product development, students gain a deeper understanding of how theoretical concepts are applied in practice.</p>
+        <p>These visits help students relate classroom learning to industry practices, enhance their technical awareness, and develop insights into current trends, challenges, and innovations in the field of electronics and communication. Industrial visits also promote professional interaction with industry experts, instill teamwork and discipline, and motivate students toward research, innovation, employability, and entrepreneurship.</p>
+
+        <div class="gallery-section">
+          <h3>Industrial Visit: LAHARI Advanced Electronics Test Facility</h3>
+          <p>Our industrial visit to LAHARI Advanced Electronics Test Facility gave us practical exposure to how advanced electronics are tested and validated to meet industry standards. We learned about real-world testing processes, quality assurance, and the importance of reliability in electronic products. The visit helped bridge the gap between theoretical knowledge and industrial practices, and gave us insight into career opportunities in the ESDM sector.</p>
+          <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(0)">
+              <img src="../Pages Information/INDUSTRIAL VISITS/Mysore/INDUSTRIAL VISIT-1.jpg" alt="Industrial Visit Day 1 - West Coast Paper Mills" />
+              <div class="gallery-overlay">
+                <div class="view-icon">👁️</div>
+                <h4>LAHARI Advanced Electronics Test Facility</h4>
+              </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(1)">
+              <img src="../Pages Information/INDUSTRIAL VISITS/Mysore/IV-2.jpg" alt="Industrial Visit Day 1 - West Coast Paper Mills" />
+              <div class="gallery-overlay">
+                <div class="view-icon">👁️</div>
+                <h4>LAHARI Advanced Electronics Test Facility</h4>
+              </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(2)">
+              <img src="../Pages Information/INDUSTRIAL VISITS/Mysore/IV-3.jpg" alt="Industrial Visit Day 2 - SUPA DAM" />
+              <div class="gallery-overlay">
+                <div class="view-icon">👁️</div>
+                <h4>LAHARI Advanced Electronics Test Facility</h4>
+              </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(3)">
+              <img src="../Pages Information/INDUSTRIAL VISITS/Mysore/IV-4.jpg" alt="Industrial Visit Day 2 - SUPA DAM" />
+              <div class="gallery-overlay">
+                <div class="view-icon">👁️</div>
+                <h4>LAHARI Advanced Electronics Test Facility</h4>
+              </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(4)">
+              <img src="../Pages Information/INDUSTRIAL VISITS/Mysore/IV-5.jpg" alt="Industrial Visit Day 3 - Group Activities" />
+              <div class="gallery-overlay">
+                <div class="view-icon">👁️</div>
+                <h4>LAHARI Advanced Electronics Test Facility</h4>
+              </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(5)">
+              <img src="../Pages Information/INDUSTRIAL VISITS/Mysore/IV-6.jpg" alt="Industrial Visit Day 3 - Group Activities" />
+              <div class="gallery-overlay">
+                <div class="view-icon">👁️</div>
+                <h4>LAHARI Advanced Electronics Test Facility</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+          <span class="close" onclick="closeLightbox()">&times;</span>
+          <img id="lightbox-img" src="" alt="Industrial Visit Photo" />
+          <div class="lightbox-counter" id="lightbox-counter">1 / 6</div>
+          <div class="prev" onclick="changeSlide(-1)">&#10094;</div>
+          <div class="next" onclick="changeSlide(1)">&#10095;</div>
+        </div>
+
+        <a href="../index.html#footer" class="back-button">← Back to Home</a>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const images = [
+      '../activities/INDUSTRIAL VISITS/DANDELI/INDUSTRIAL VISITS 1.jpg',
+      '../activities/INDUSTRIAL VISITS/DANDELI/INDUSTRIAL VISITS 2.jpg',
+      '../activities/INDUSTRIAL VISITS/DANDELI/INDUSTRIAL VISITS 3.jpg',
+      '../activities/INDUSTRIAL VISITS/DANDELI/INDUSTRIAL VISITS 4.jpg',
+      '../activities/INDUSTRIAL VISITS/DANDELI/INDUSTRIAL VISITS 5.jpg',
+      '../activities/INDUSTRIAL VISITS/DANDELI/INDUSTRIAL VISITS 6.jpg'
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById('lightbox-img').src = images[currentIndex];
+      updateCounter();
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+      } else if (currentIndex >= images.length) {
+        currentIndex = 0;
+      }
+      document.getElementById('lightbox-img').src = images[currentIndex];
+      updateCounter();
+    }
+
+    function updateCounter() {
+      document.getElementById('lightbox-counter').textContent = `${currentIndex + 1} / ${images.length}`;
+    }
+
+    // Close lightbox when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('lightbox').classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          changeSlide(-1);
+        } else if (e.key === 'ArrowRight') {
+          changeSlide(1);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

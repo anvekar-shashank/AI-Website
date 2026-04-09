@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Achievements - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/advanced-performance.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+    }
+    .breadcrumb {
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .content-section > h2,
+    .content-section > p {
+      text-align: center;
+    }
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #5b1f1f;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #472222;
+    }
+    .achievement-card {
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-left: 4px solid #5b1f1f;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+    .achievement-card h4 {
+      margin-top: 0;
+      color: #5b1f1f;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      border-top: 4px solid #5b1f1f;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #5b1f1f;
+    }
+    .stat-label {
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    /* Faculty Section Styles */
+    .faculty-section {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    .faculty-section:last-of-type {
+      border-bottom: none;
+    }
+    .faculty-section h3 {
+      color: #5b1f1f;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid #e9c66f;
+      display: block;
+      text-align: center;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* HOD Grid - Single large card */
+    .hod-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem auto;
+      width: 100%;
+    }
+    
+    .hod-grid .faculty-card {
+      margin: 0 auto;
+    }
+    
+    
+    /* Associate Professors Grid - 2 columns */
+    .associate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Assistant Professors Grid - 3-4 columns */
+    .assistant-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    /* Faculty Card Styles */
+    .faculty-card {
+      background: #f8f9fa;
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+    .faculty-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(91, 31, 31, 0.2);
+    }
+    .faculty-card::after {
+      content: "Click for achievements";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 0.7rem;
+      color: #999;
+      background: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .faculty-card:hover::after {
+      opacity: 1;
+    }
+    /* HOD Card - Larger */
+    .hod-card {
+      min-width: 350px;
+      padding: 2.5rem 2rem;
+    }
+    
+    /* Faculty Photo */
+    .faculty-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #5b1f1f;
+      margin: 0 auto 1.5rem;
+      display: block;
+      background: #e0e0e0;
+    }
+    .hod-card .faculty-photo {
+      width: 180px;
+      height: 180px;
+      border-width: 5px;
+    }
+    
+    /* Faculty Info */
+    .faculty-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #5b1f1f;
+      margin-bottom: 0.5rem;
+    }
+    .hod-card .faculty-name {
+      font-size: 1.5rem;
+    }
+    
+    .faculty-designation {
+      color: #666;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    
+    .faculty-contact {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+    }
+    .faculty-contact p {
+      margin: 0.4rem 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .faculty-contact a {
+      color: #5b1f1f;
+      text-decoration: none;
+    }
+    .faculty-contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* LinkedIn Button in Faculty Cards */
+    .faculty-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      background: #0077b5;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      transition: all 0.3s;
+    }
+    .faculty-linkedin:hover {
+      background: #005885;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 119, 181, 0.3);
+    }
+    .faculty-linkedin svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Achievement Modal */
+    .achievement-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 2rem 0;
+    }
+    .achievement-modal.active {
+      display: block;
+    }
+    .achievement-modal__content {
+      background: white;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .achievement-modal__header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .achievement-modal__photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #e9c66f;
+      object-fit: cover;
+    }
+    .achievement-modal__info h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.8rem;
+    }
+    .achievement-modal__info p {
+      margin: 0.3rem 0;
+      opacity: 0.9;
+    }
+    .achievement-modal__info a {
+      color: #e9c66f;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .achievement-modal__info a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    .modal-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      transition: all 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .modal-linkedin:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateX(4px);
+    }
+    .modal-linkedin svg {
+      width: 18px;
+      height: 18px;
+    }
+    .achievement-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .achievement-modal__close:hover {
+      background: rgba(255,255,255,0.3);
+      transform: rotate(90deg);
+    }
+    .achievement-modal__body {
+      padding: 2rem;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+    .achievement-section {
+      margin-bottom: 2rem;
+    }
+    .achievement-section h3 {
+      color: #5b1f1f;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e9c66f;
+    }
+    .achievement-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .achievement-section li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .achievement-section li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #5b1f1f;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .achievement-modal__header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .assistant-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Faculty Achievements</h1>
+      <div class="breadcrumb">
+        <a href="../index.html#">Home</a> / Faculty Achievements
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h2>Faculty Achievements Directory</h2>
+        <p>Click on any faculty member to view their detailed achievements, publications, awards, and contributions to the academic community.</p>
+
+        <!-- HOD Section -->
+        <div class="faculty-section">
+          <h3>Head of the Department</h3>
+          <div class="hod-grid">
+            <div class="faculty-card hod-card" data-faculty="Dr. Praveen J">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/PRAVEEN J.jpeg" alt="Dr. Praveen J - Professor & Head of the Department" loading="eager" decoding="async" fetchpriority="high" onerror="this.style.display='none'" />
+              <div class="faculty-name">Dr. Praveen J</div>
+              <div class="faculty-designation">Professor & Head of the Department</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=hod.ece%40gmu.ac.in" target="_blank" rel="noopener">hod.ece@gmu.ac.in</a></p>
+                <p>Phone: +91 8884767555</p>
+              </div>
+              <a href="http://linkedin.com/in/dr-praveen-j-976148b5" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Associate Professors Section -->
+        <div class="faculty-section">
+          <h3>Associate Professors</h3>
+          <div class="associate-grid">
+            <div class="faculty-card" data-faculty="Dr. Kavitha K J">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/KAVITHA K J.jpg" alt="Dr. Kavitha K J - Associate Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Dr. Kavitha K J</div>
+              <div class="faculty-designation">Associate Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=kavithakj%40gmu.ac.in" target="_blank" rel="noopener">kavithakj@gmu.ac.in</a></p>
+                <p>Phone: +91 9448365768</p>
+              </div>
+              <a href="https://www.linkedin.com/in/kavitha-kj-6846248a" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <div class="faculty-card" data-faculty="Dr. Arun Kumar K M">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/ARUN KUMAR K M.jpeg" alt="Dr. Arun Kumar K M - Associate Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Dr. Arun Kumar K M</div>
+              <div class="faculty-designation">Associate Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=arunkumarkm%40gmu.ac.in" target="_blank" rel="noopener">arunkumarkm@gmu.ac.in</a></p>
+                <p>Phone: +91 9448365768</p>
+              </div>
+              <a href="http://linkedin.com/in/dr-arun-kumar-k-m-3b611221" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Assistant Professors Section -->
+        <div class="faculty-section">
+          <h3>Assistant Professors</h3>
+          <div class="assistant-grid">
+            <!-- 1. Mrs. Manjula B K -->
+            <div class="faculty-card" data-faculty="Mrs. Manjula B K">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/MANJULA B K.jpg" alt="Mrs. Manjula B K - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mrs. Manjula B K</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=manjulabk%40gmu.ac.in" target="_blank" rel="noopener">manjulabk@gmu.ac.in</a></p>
+                <p>Phone: +91 9448365768</p>
+              </div>
+              <a href="http://linkedin.com/in/manjula-b-k-427463207" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 2. Mr. Raviteja Balekai -->
+            <div class="faculty-card" data-faculty="Mr. Raviteja Balekai">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/RAVITEJA BALEKAI.jpg" alt="Mr. Raviteja Balekai - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mr. Raviteja Balekai</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=ravitejab%40gmu.ac.in" target="_blank" rel="noopener">ravitejab@gmu.ac.in</a></p>
+                <p>Phone: +91 9481542857</p>
+              </div>
+              <a href="https://www.linkedin.com/in/raviteja-balekai-964a3725/" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 3. Mr. Harisha G C -->
+            <div class="faculty-card" data-faculty="Mr. Harisha G C">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/HARISHA G C.jpeg" alt="Mr. Harisha G C - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mr. Harisha G C</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=harishagc%40gmu.ac.in" target="_blank" rel="noopener">harishagc@gmu.ac.in</a></p>
+                <p>Phone: +91 8792337913</p>
+              </div>
+              <a href="http://linkedin.com/in/harisha-gc-610b3915" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 4. Mr. Chetan B V -->
+            <div class="faculty-card" data-faculty="Mr. Chetan B V">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/CHETAN B V.jpg" alt="Mr. Chetan B V - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mr. Chetan B V</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=chetanbv%40gmu.ac.in" target="_blank" rel="noopener">chetanbv@gmu.ac.in</a></p>
+                <p>Phone: +91 9164329475</p>
+              </div>
+              <a href="https://www.linkedin.com/in/chetan-b-v-157058179" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 5. Mr. Sampath Kumar B -->
+            <div class="faculty-card" data-faculty="Mr. Sampath Kumar B">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/SAMPATH KUMAR.jpg" alt="Mr. Sampath Kumar B - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mr. Sampath Kumar B</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=sampathkumarb%40gmu.ac.in" target="_blank" rel="noopener">sampathkumarb@gmu.ac.in</a></p>
+                <p>Phone: +91 9538617842</p>
+              </div>
+              <a href="http://linkedin.com/in/sampath-kumar-b-099461207" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 6. Mrs. Akshata Chavan -->
+            <div class="faculty-card" data-faculty="Mrs. Akshata Chavan">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/Akshata Chavan .jpg" alt="Mrs. Akshata Chavan - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mrs. Akshata Chavan</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=akshatac%40gmu.ac.in" target="_blank" rel="noopener">akshatac@gmu.ac.in</a></p>
+                <p>Phone: +91 9742348821</p>
+              </div>
+              <a href="https://www.linkedin.com/in/akshata-chavan-751a61179/" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 7. Mr. Santhosh B G -->
+            <div class="faculty-card" data-faculty="Mr. Santhosh B G">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/Santhosh B G.png" alt="Mr. Santhosh B G - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mr. Santhosh B G</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=santhoshbg%40gmu.ac.in" target="_blank" rel="noopener">santhoshbg@gmu.ac.in</a></p>
+                <p>Phone: +91 9902113054</p>
+              </div>
+              <a href="https://www.linkedin.com/in/santhosh-gb-a301a038b" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 8. Mr. Hanumanth Raju R K -->
+            <div class="faculty-card" data-faculty="Mr. Hanumanth Raju R K">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/Hanumanth Raju R K .jpg" alt="Mr. Hanumanth Raju R K - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mr. Hanumanth Raju R K</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&amp;tf=cm&amp;to=hanumanthraju%40gmu.ac.in" target="_blank" rel="noopener">hanumanthraju@gmu.ac.in</a></p>
+                <p>Phone: +91 8884767555</p>
+              </div>
+              <a href="http://www.linkedin.com/in/hanumanth-raju-r-k-b0b0736b" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 9. Mrs. Gayatri Narajji -->
+            <div class="faculty-card" data-faculty="Mrs. Gayatri Narajji">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/Gayatri Narajji.jpg" alt="Mrs. Gayatri Narajji - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mrs. Gayatri Narajji</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=gayatrin%40gmu.ac.in" target="_blank" rel="noopener">gayatrin@gmu.ac.in</a></p>
+                <p>Phone: +91 6364660823</p>
+              </div>
+              <a href="https://www.linkedin.com/in/gayatri-sg-56431138a" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 10. Ms. Deepika V B -->
+            <div class="faculty-card" data-faculty="Ms. Deepika V B">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/DEEPIKA V B.png" alt="Ms. Deepika V B - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Ms. Deepika V B</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=deepikavb%40gmu.ac.in" target="_blank" rel="noopener">deepikavb@gmu.ac.in</a></p>
+                <p>Phone: +91 9538152434</p>
+              </div>
+              <a href="http://linkedin.com/in/deepika-v-b-623763255/" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 11. Mrs. Veena H T -->
+            <div class="faculty-card" data-faculty="Mrs. Veena H T">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/Veena H T.jpg" alt="Mrs. Veena H T - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mrs. Veena H T</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=veenaht%40gmu.ac.in" target="_blank" rel="noopener">veenaht@gmu.ac.in</a></p>
+                <p>Phone: +91 9845584048</p>
+              </div>
+              <a href="https://www.linkedin.com/in/veena-h-t-9093a9257/" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 12. Mrs. Sucharitha S D -->
+            <div class="faculty-card" data-faculty="Mrs. Sucharitha S D">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/Sucharitha S D.jpg" alt="Mrs. Sucharitha S D - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mrs. Sucharitha S D</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=sucharithasd%40gmu.ac.in" target="_blank" rel="noopener">sucharithasd@gmu.ac.in</a></p>
+                <p>Phone: +91 9972765353</p>
+              </div>
+              <a href="https://www.linkedin.com/in/sucharitha-s-d-b01380382/" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 13. Dr. Pradeep T M -->
+            <div class="faculty-card" data-faculty="Dr. Pradeep T M">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/PRADEEP T M.jpg" alt="Dr. Pradeep T M - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Dr. Pradeep T M</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=pradeeptm%40gmu.ac.in" target="_blank" rel="noopener">pradeeptm@gmu.ac.in</a></p>
+                <p>Phone: +91 8884767555</p>
+              </div>
+              <a href="http://linkedin.com/in/dr-pradeep-t-m-535209107" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <!-- 14. Mr. Ananda M K -->
+            <div class="faculty-card" data-faculty="Mr. Ananda M K">
+              <img class="faculty-photo" src="../Pages Information/Faculty/Faculty Profile Photo/Ananda M K .png" alt="Mr. Ananda M K - Assistant Professor" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+              <div class="faculty-name">Mr. Ananda M K</div>
+              <div class="faculty-designation">Assistant Professor</div>
+              <div class="faculty-contact">
+                <p>Email: <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=anandamk%40gmu.ac.in" target="_blank" rel="noopener">anandamk@gmu.ac.in</a></p>
+                <p>Phone: +91 9606073113</p>
+              </div>
+              <a href="https://in.linkedin.com/in/ananda-mk-b8996551" class="faculty-linkedin" target="_blank" rel="noopener" onclick="event.stopPropagation()" >
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="../index.html" class="back-button">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Achievement Modal -->
+  <div id="achievementModal" class="achievement-modal">
+    <div class="achievement-modal__content">
+      <button class="achievement-modal__close" onclick="closeAchievementModal()">&times;</button>
+      <div class="achievement-modal__header">
+        <img id="modalPhoto" class="achievement-modal__photo" src="" alt="Faculty Photo" />
+        <div class="achievement-modal__info">
+          <h2 id="modalName"></h2>
+          <p id="modalDesignation"></p>
+          <p id="modalEmail"></p>
+          <p id="modalPhone"></p>
+        </div>
+      </div>
+      <div class="achievement-modal__body" id="modalAchievements">
+        <!-- Achievements will be loaded here dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/ultra-performance.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/faculty-achievements.js"></script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Achievements - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white;
+    }
+    .breadcrumb {
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #5b1f1f;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #472222;
+    }
+    .achievement-card {
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-left: 4px solid #5b1f1f;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .achievement-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .achievement-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .achievement-content h4 {
+      margin-top: 0;
+      color: #5b1f1f;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .achievement-content p {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+      color: #333;
+    }
+    .achievement-event {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #5b1f1f;
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+    .achievement-summary {
+      margin-bottom: 0.75rem;
+      color: #555;
+      padding-left: 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .achievement-card ul {
+      padding-left: 0;
+      list-style: none;
+    }
+    .achievement-card li {
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    .summary-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      border: 2px solid #5b1f1f;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .achievement-card {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .achievement-image {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Student Achievements</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / Student Achievements
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h2>Celebrating Student Excellence</h2>
+        <p>Our students have consistently demonstrated exceptional talent and achieved remarkable success in academics, technical competitions, research, sports, and cultural activities. Their achievements make us proud and inspire future generations.</p>
+
+        <!-- Cultural Achievements -->
+        <h3>🎭 Cultural Achievements</h3>
+
+        <div class="achievement-card">
+          <img src="../Pages Information/STUDENT ACHIEVEMENT/STUDENT ACHIEVEMENT 8.jpg" alt="ECE Students 2nd Prize in Kannada Kala Vaibhava Cultural Event" class="achievement-image" />
+          <div class="achievement-content">
+            <h4>Cultural Excellence - Kannada Kala Vaibhava</h4>
+            <p>ECE department students participated in the event <strong>"Kannada Kala Vaibhava"</strong> on November 16, 2024 at GM University and secured <strong>2nd prize</strong> for the department event theme.</p>
+            <p>The students showcased exceptional creativity, cultural understanding, and artistic presentation in representing Karnataka's rich heritage through various traditional art forms, folk dances, and cultural performances.</p>
+            <p>This achievement demonstrates the well-rounded development of our ECE students, balancing academic excellence with cultural participation and artistic expression, bringing pride to the department and university.</p>
+          </div>
+        </div>
+
+        <!-- Sports Achievements -->
+        <h3>🏆 Sports Achievements</h3>
+
+        <div class="achievement-card">
+          <img src="../Pages Information/STUDENT ACHIEVEMENT/STUDENT ACHIEVEMENT 1.jpg" alt="ECE Basketball Team Championship Victory" class="achievement-image" />
+          <div class="achievement-content">
+            <h4>Team Sports Success - Basketball Championship</h4>
+            <p><strong>Tejas</strong> and the university basketball team, comprising several talented players from the Electronics and Communication Engineering (ECE) department, have secured a spectacular championship victory in the recent inter-collegiate tournament.</p>
+            <p>Demonstrating exceptional teamwork, strategic plays, and remarkable athletic endurance, the team showcased excellent coordination and sportsmanship throughout the competition. Their journey to the title involved rigorous practice, strong collaboration, and an unwavering competitive spirit that inspired everyone on campus.</p>
+            <p>This celebrated win not only highlights the diverse talents of ECE students beyond academics but also reinforces the department's commitment to fostering well-rounded excellence in all fields.</p>
+          </div>
+        </div>
+
+        <div class="achievement-card">
+          <img src="../Pages Information/STUDENT ACHIEVEMENT/STUDENT ACHIEVEMENT 2.jpg" alt="Victory Hunters Cricket Team Championship" class="achievement-image" />
+          <div class="achievement-content">
+            <h4>Sports Victory - Cricket Championship</h4>
+            <p>The <strong>Victory Hunters</strong>, a dynamic team composed entirely of students from the ECE department, have clinched the championship title of the GMU Cricket League 2K25.</p>
+            <p>Throughout the tournament, the team displayed outstanding teamwork, strategic play, and consistent athletic excellence against formidable opponents. Their triumphant journey showcased not only their sporting spirit but also the cohesive unity and competitive drive inherent within the ECE community.</p>
+            <p>This glorious victory has brought immense pride to the department, solidifying their reputation as champions on the sports field.</p>
+          </div>
+        </div>
+
+        <!-- Academic Excellence -->
+        <h3>📚 Academic Excellence</h3>
+
+        <div class="achievement-card">
+          <img src="../Pages Information/STUDENT ACHIEVEMENT/STUDENT ACHIEVEMENT 3.jpg" alt="Akash C M receiving Academic Excellence Quiz Award" class="achievement-image" />
+          <div class="achievement-content">
+            <h4>Academic Excellence Quiz Competition</h4>
+            <p><strong>Akash C M</strong>, a B.Tech student in Electronics and Communication Engineering (ECE), emerged as the Winner of the Academic Excellence Quiz Competition organized by I-STEM (Indian Science, Technology and Engineering facilities Map), an initiative under IISc Bangalore.</p>
+            <p>The event, held at GM University, Davanagere, aimed to foster scientific curiosity and analytical thinking among students. Akash showcased remarkable technical knowledge, quick reasoning, and problem-solving skills, earning recognition for his commitment to innovation and academic excellence.</p>
+          </div>
+        </div>
+
+        <!-- Competition and Industry -->
+        <h3>🏭 Competition and Industry</h3>
+
+        <div class="achievement-card">
+          <img src="../Pages Information/STUDENT ACHIEVEMENT/STUDENT ACHIEVEMENT 4.jpg" alt="Shreya M receiving Technical Competition and Industry Awards" class="achievement-image" />
+          <div class="achievement-content">
+            <h4>Technical Competition & Industry Recognition</h4>
+            <p><strong>Shreya M</strong> has demonstrated exceptional talent and versatility by securing two significant accolades: winning a national technical competition in electronics design and receiving a prestigious industry recognition award for a collaborative project.</p>
+            <p>Her first achievement saw her emerge victorious at a national-level electronics design competition, where she showcased her profound technical expertise, innovative circuit design capabilities, and superior problem-solving skills under pressure.</p>
+            <p>Shortly thereafter, she further distinguished herself by receiving a notable industry award, which honored her exceptional contribution to a high-impact collaborative project. This award specifically recognized her ability to bridge academic knowledge with practical, real-world applications, her strong teamwork, and her proficiency in meeting industry standards.</p>
+            <p>Together, these accomplishments highlight Shreya M as a multifaceted individual who excels not only in competitive academic environments but also in professional, collaborative settings, marking her as a promising future leader in the field of electronics.</p>
+          </div>
+        </div>
+
+        <!-- Physical Excellence -->
+        <h3>💪 Physical Excellence</h3>
+
+        <div class="achievement-card">
+          <img src="../Pages Information/STUDENT ACHIEVEMENT/STUDENT ACHIEVEMENT 5.jpg" alt="Shrihari Bodybuilding Championship Victory" class="achievement-image" />
+          <div class="achievement-content">
+            <h4>Bodybuilding Championship Victory</h4>
+            <p><strong>Shrihari</strong>, a determined student from the Electronics and Communication Engineering (ECE) department, has achieved remarkable success by winning a prestigious bodybuilding championship.</p>
+            <p>Through disciplined training, strict nutritional regimen, and unwavering dedication, he has sculpted an exceptional physique that demonstrates the perfect harmony of strength, symmetry, and conditioning.</p>
+            <p>His achievement highlights that the same commitment and precision required in electronics engineering can be powerfully applied to physical transformation. This outstanding victory not only showcases Shrihari's personal discipline but also brings a unique honor to the ECE department, inspiring his peers to pursue excellence beyond the academic realm.</p>
+          </div>
+        </div>
+
+        <!-- Research and Social Impact -->
+        <h3>🔬 Research and Social Impact</h3>
+
+        <div class="achievement-card">
+          <img src="../Pages Information/STUDENT ACHIEVEMENT/STUDENT ACHIEVEMENT 6.jpg" alt="Ahamed Ali Z receiving National Hackathon Award for Visually Impaired Education Project" class="achievement-image" />
+          <div class="achievement-content">
+            <h4>National Hackathon Winner - Smart Education for Visually Impaired</h4>
+            <p><strong>Ahamed Ali Z</strong>, a dedicated student innovator, emerged as the Winner of a prestigious national-level hackathon for his project developing a smart education system tailored for the visually impaired.</p>
+            <p>The competition, which brings together the brightest minds from across the country, aims to foster practical innovation and develop solutions for real-world challenges. Ahamed showcased remarkable technical prowess, creative design, and a deep sense of empathy, building a system that leverages assistive technologies to create an inclusive learning environment.</p>
+            <p>His achievement earned him widespread recognition for his commitment to leveraging technology for meaningful social impact and his potential to drive change in the field of accessible education.</p>
+          </div>
+        </div>
+
+        <!-- Technical Competition -->
+        <h3>⚡ Technical Competition</h3>
+
+        <div class="achievement-card">
+          <img src="../Pages Information/STUDENT ACHIEVEMENT/STUDENT ACHIEVEMENT 7.jpg" alt="Hemanth S A receiving Emerge 2023 Technical and Leadership Excellence Awards" class="achievement-image" />
+          <div class="achievement-content">
+            <h4>Emerge 2023 - Technical & Leadership Excellence</h4>
+            <p><strong>Hemanth S A</strong>, a dedicated student from the Electronics and Communication Engineering (ECE) department, demonstrated outstanding prowess at Emerge 2023, where he secured top honors for both technical competition excellence and leadership.</p>
+            <p>His performance highlighted an exceptional ability to integrate advanced technical knowledge with effective team management and strategic oversight. Through this achievement, Hemanth not only excelled in solving complex engineering challenges but also inspired his peers with his vision and collaborative approach.</p>
+            <p>This dual recognition underscores his potential as a future leader in the technology sector and brings great pride to the ECE community.</p>
+          </div>
+        </div>
+
+        <h3>Recent Highlights & Recognition</h3>
+        <div class="achievement-card summary-card">
+          <div class="achievement-content">
+            <h4>Key Achievements Summary</h4>
+            <ul>
+              <li>
+                <div class="achievement-event"><strong>🎭 Cultural Excellence</strong></div>
+                <div class="achievement-summary">2nd prize in Kannada Kala Vaibhava Cultural Event</div>
+              </li>
+              <li>
+                <div class="achievement-event"><strong>🏀 Basketball Championship</strong></div>
+                <div class="achievement-summary">University team victory with ECE players</div>
+              </li>
+              <li>
+                <div class="achievement-event"><strong>🏏 Cricket Championship</strong></div>
+                <div class="achievement-summary">Victory Hunters - GMU Cricket League Champions</div>
+              </li>
+              <li>
+                <div class="achievement-event"><strong>🧠 Academic Excellence</strong></div>
+                <div class="achievement-summary">Akash C M wins I-STEM Quiz Competition</div>
+              </li>
+              <li>
+                <div class="achievement-event"><strong>🏆 Technical & Industry</strong></div>
+                <div class="achievement-summary">Shreya M wins national competition + industry award</div>
+              </li>
+              <li>
+                <div class="achievement-event"><strong>💪 Physical Excellence</strong></div>
+                <div class="achievement-summary">Shrihari wins bodybuilding championship</div>
+              </li>
+              <li>
+                <div class="achievement-event"><strong>🔬 Social Innovation</strong></div>
+                <div class="achievement-summary">Ahamed Ali Z wins hackathon for visually impaired education</div>
+              </li>
+              <li>
+                <div class="achievement-event"><strong>⚡ Technical Leadership</strong></div>
+                <div class="achievement-summary">Hemanth S A excels at Emerge 2023</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <a href="../index.html" class="back-button">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

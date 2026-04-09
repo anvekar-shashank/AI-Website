@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports & Cultural Activities - ECE Department | GM University</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #5b1f1f, #472222);
+      color: white;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: white; 
+    }
+    .breadcrumb {
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .content-section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: black;
+    }
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #5b1f1f;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #472222;
+    }
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .activity-card {
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-left: 4px solid #5b1f1f;
+      border-radius: 4px;
+    }
+    .activity-card h4 {
+      margin-top: 0;
+      color: #5b1f1f;
+    }
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .photo-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .photo-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .photo-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="theme--navy-copper">
+  <section class="brand-strip" aria-label="University Brand">
+    <div class="container brand-strip__inner">
+      <div class="brand-strip__logo" aria-hidden="true">
+        <a href="../index.html" onclick="window.location.href='../index.html'; return false;"><img src="../Index Page/GMU LOGO/gmu.png" alt="GM University Logo" /></a>
+      </div>
+      <div class="brand-strip__titles">
+        <h1 class="brand-strip__dept">Department of Electronics and Communication Engineering</h1>
+        <div class="brand-strip__faculty">Faculty of Engineering and Technology</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Sports & Cultural Activities</h1>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a> / Sports & Cultural Activities
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+      <div class="content-section">
+        <h3>Sports & Cultural Coordinators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+          <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; text-align: center;">
+          <img src="../Pages Information/Faculty/Faculty Profile Photo/Santhosh B G.png" alt="Mr. Santosh B G" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto; border: 3px solid #5b1f1f;" /> 
+            <h4 style="margin-top: 0; color: #5b1f1f;">Mr. Santosh B G</h4>
+            <div class="faculty-designation"> Assistant Professor</div>
+          </div>
+          <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; text-align: center;">
+            <img src="../Pages Information/Faculty/Faculty Profile Photo/DEEPIKA V B.png" alt="Ms. Deepika V B" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto; border: 3px solid #5b1f1f;" />
+            <h4 style="margin-top: 0; color: #5b1f1f;">Ms. Deepika V B</h4>
+            <div class="faculty-designation"> Assistant Professor</div>
+          </div>
+        </div>
+
+        <h2>Sports and Cultural Activities</h2>
+        <p>The Department of Electronics and Communication Engineering emphasizes holistic student development by actively encouraging participation in sports and cultural activities alongside academics. Students regularly engage in intra- and inter-collegiate sports competitions, showcasing their talent in athletics, team games, and individual events that promote physical fitness, teamwork, leadership, and discipline.</p>
+        
+        <p>Cultural activities such as technical fests, cultural festivals, talent shows, music, dance, drama, and creative arts provide students with a platform to express creativity, enhance confidence, and develop organisational and interpersonal skills. The department also motivates students to take part in university-level and national-level events, fostering a spirit of collaboration, innovation, and healthy competition.</p>
+        
+        <p>These activities not only enrich campus life but also contribute to the overall personality development of students, helping them balance academic excellence with social, cultural, and emotional growth.</p>
+       
+        
+        <h3>Sports Gallery</h3>
+        <div class="photo-gallery">
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/Basketball 1.JPG" alt="Basketball Tournament" loading="lazy">
+            <div class="photo-caption">Basketball Championship</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/Basketball 2.JPG" alt="Basketball Match" loading="lazy">
+            <div class="photo-caption">Basketball Championship</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/Basketball 3.JPG" alt="Basketball Team" loading="lazy">
+            <div class="photo-caption">Basketball Tournament</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/GML 1.jpg" alt="GM League Event" loading="lazy">
+            <div class="photo-caption">GM League Tournament</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/GML 2.jpg" alt="GM League Competition" loading="lazy">
+            <div class="photo-caption">GM League</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/GML 3.jpg" alt="GM League Awards" loading="lazy">
+            <div class="photo-caption">GM League Award Ceremony</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/GML 4.jpg" alt="GM League Participants" loading="lazy">
+            <div class="photo-caption">GM League Participants</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/Sports 1.jpeg" alt="Sports Event" loading="lazy">
+            <div class="photo-caption">Sports Competition</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/Sports 2.jpeg" alt="Athletic Meet" loading="lazy">
+            <div class="photo-caption">Athletic Championship</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/Sports 3.jpeg" alt="Sports Day" loading="lazy">
+            <div class="photo-caption">Sports Event</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/SPORTS/Sports 4.jpeg" alt="Team Sports" loading="lazy">
+            <div class="photo-caption">Team Sports Event</div>
+          </div>
+        </div>
+
+        <h3>Cultural Events Gallery</h3>
+        
+        <h4 style="color: #5b1f1f; margin-top: 2rem;">Dandiya Nights</h4>
+        <div class="photo-gallery">
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Dandiya Nights/Dandiya Nights 1.JPG" alt="Dandiya Nights Celebration" loading="lazy">
+            <div class="photo-caption">Dandiya Nights Festival</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Dandiya Nights/Dandiya NIghts 2.JPG" alt="Dandiya Dance Performance" loading="lazy">
+            <div class="photo-caption">Traditional Dandiya Dance</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Dandiya Nights/Dandiya Nights 3.JPG" alt="Dandiya Night Event" loading="lazy">
+            <div class="photo-caption">Dandiya Night Celebrations</div>
+          </div>
+        </div>
+
+        <h4 style="color: #5b1f1f; margin-top: 2rem;">Kannada Kala Vaibhava</h4>
+        <div class="photo-gallery">
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Kannada kalla Vaibava/kannada kala vaibhava 1.JPG" alt="Kannada Kala Vaibhava Event" loading="lazy">
+            <div class="photo-caption">Kannada Kala Vaibhava</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Kannada kalla Vaibava/kannada kala vaibhava 2.jpg" alt="Kannada Cultural Program" loading="lazy">
+            <div class="photo-caption">Kannada Kala Vaibhava</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Kannada kalla Vaibava/kannada kala vaibhava 3.JPG" alt="Kannada Heritage Celebration" loading="lazy">
+            <div class="photo-caption">Kannada Kala Vaibhava</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Kannada kalla Vaibava/kannada kala vaibhava 4.JPG" alt="Kannada Cultural Event" loading="lazy">
+            <div class="photo-caption">Kannada Kala Vaibhava</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Kannada kalla Vaibava/kannada kala vaibhava 5.JPG" alt="Kannada Festival" loading="lazy">
+            <div class="photo-caption">Kannada Kala Vaibhava</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Kannada kalla Vaibava/kannada kala vaibhava 6.JPG" alt="Kannada Celebration" loading="lazy">
+            <div class="photo-caption">Kannada Kala Vaibhava</div>
+          </div>
+        </div>
+
+        <h4 style="color: #5b1f1f; margin-top: 2rem;">Mallika Cultural Festival</h4>
+        <div class="photo-gallery">
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Mallika/Mallika 1.JPG" alt="Mallika Festival" loading="lazy">
+            <div class="photo-caption">Mallika Cultural Festival</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Mallika/Mallika 2.JPG" alt="Mallika Event" loading="lazy">
+            <div class="photo-caption">Mallika Cultural Festival</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Mallika/Mallika 3.JPG" alt="Mallika Celebration" loading="lazy">
+            <div class="photo-caption">Mallika Cultural Festival</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Mallika/Mallika 4.JPG" alt="Mallika Performance" loading="lazy">
+            <div class="photo-caption">Mallika Cultural Festival</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Mallika/Mallika 5.JPG" alt="Mallika Show" loading="lazy">
+            <div class="photo-caption">Mallika Cultural Festival</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Mallika/Mallika 6.JPG" alt="Mallika Program" loading="lazy">
+            <div class="photo-caption">Mallika Cultural Festival</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Mallika/Mallika 7.JPG" alt="Mallika Stage Event" loading="lazy">
+            <div class="photo-caption">Mallika Cultural Festival</div>
+          </div>
+          <div class="photo-item">
+            <img src="../Pages Information/Sports & Cultural/CULTURAL/Mallika/Mallika 8.JPG" alt="Mallika Cultural Show" loading="lazy">
+            <div class="photo-caption">Mallika Cultural Festival</div>
+          </div>
+        </div>
+
+        <h3>Student Clubs & Societies</h3>
+        <ul>
+          <li><strong>Sports Club:</strong> Organizing sports activities and coaching sessions</li>
+          <li><strong>Music Club:</strong> For music enthusiasts - instrumental, vocal, and band performances</li>
+          <li><strong>Dance Club:</strong> Classical, contemporary, and hip-hop dance groups</li>
+          <li><strong>Drama Club:</strong> Theater productions and street plays</li>
+          <li><strong>Photography Club:</strong> Capturing campus life and organizing photo walks</li>
+          <li><strong>Literary Club:</strong> Debates, writing, and public speaking activities</li>
+        </ul>
+
+        <h3>Celebrations & Festivals</h3>
+        <ul>
+          <li><strong>Freshers' Welcome:</strong> Grand welcome for new students</li>
+          <li><strong>Teachers' Day:</strong> Special programs honoring faculty</li>
+          <li><strong>Engineers' Day:</strong> Celebrating engineering achievements</li>
+          <li><strong>Independence Day & Republic Day:</strong> Patriotic celebrations</li>
+          <li><strong>Cultural Festival Days:</strong> Diwali, Holi, Onam, and other festivals</li>
+          <li><strong>Farewell:</strong> Memorable send-off for graduating students</li>
+        </ul>
+
+        <h3>Health & Wellness Programs</h3>
+        <ul>
+          <li><strong>Yoga & Meditation:</strong> Daily morning sessions for mental and physical wellness</li>
+          <li><strong>Fitness Programs:</strong> Regular workout sessions and fitness challenges</li>
+          <li><strong>Health Check-ups:</strong> Periodic medical camps and health awareness</li>
+          <li><strong>Stress Management:</strong> Workshops on managing academic pressure</li>
+        </ul>
+        <a href="../index.html" class="back-button">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <nav class="footer__links" aria-label="Quick Links" style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(3, auto); gap: 0.6rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem;">
+        <!-- Row 1: Core pages -->
+        <a href="about.html" class="footer-link">About</a>
+        <a href="bos.html" class="footer-link">BoS</a>
+        <a href="iqac.html" class="footer-link">IQAC</a>
+        <a href="mous.html" class="footer-link">MOUs</a>
+        <a href="alumni.html" class="footer-link">Alumni</a>
+        <a href="faculty.html" class="footer-link">Faculty</a>
+        <a href="programs.html" class="footer-link">Programs</a>
+        <a href="conference.html" class="footer-link">Conferences</a>
+        <a href="academics.html" class="footer-link">Academics</a>
+
+        <!-- Row 2: Student activities -->
+        <a href="facilities.html" class="footer-link">Facilities</a>
+        <a href="admissions.html" class="footer-link">Admissions</a>
+        <a href="industrial-visit.html" class="footer-link">Industrial Visit</a>
+        <a href="student-projects.html" class="footer-link">Student Projects</a>
+        <a href="student-mentoring.html" class="footer-link">Student Mentoring</a>
+        <a href="learning-resources.html" class="footer-link">Learning Resources</a>
+        <a href="student-placements.html" class="footer-link">Student Placements</a>
+        <a href="student-internships.html" class="footer-link">Student Internships</a>
+        <a href="student-achievements.html" class="footer-link">Student Achievements</a>
+
+        <!-- Row 3: Achievements and activities, centered -->
+        <div style="grid-column: 1 / -1; display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.3rem;">
+          <a href="faculty-achievements.html" class="footer-link">Faculty Achievements</a>
+          <a href="research-publications.html" class="footer-link">Research & Publications</a>
+          <a href="sports-cultural-activities.html" class="footer-link">Sports & Cultural Activities</a>
+          <a href="result-analysis.html" class="footer-link">Result & Analysis</a>
+        </div>
+      </nav>
+      <div class="footer__brand">GMU ECE</div>
+      <div class="footer__text">Department of Electronics and Communication Engineering (ECE)<br/>GM University, Faculty of Engineering</div>
+      <div class="footer__contact">
+        <div class="footer__text">Email: hod.ece@gmu.ac.in<br/>Phone: +91 8884767555</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox__toggle" id="chatboxToggle" aria-label="Open chat">
+      <span class="chatbox__icon">💬</span>
+      <span class="chatbox__text">Need Help?</span>
+    </div>
+    <div class="chatbox__panel" id="chatboxPanel">
+      <div class="chatbox__header">
+        <h3 class="chatbox__title">Ask Your Doubts</h3>
+        <button class="chatbox__close" id="chatboxClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chatbox__body">
+        <p class="chatbox__description">Have questions about our ECE program? Send us a message and we'll help you!</p>
+        <form class="chatbox__form" id="chatboxForm">
+          <div class="chatbox__input-group">
+            <label for="chatboxMessage" class="chatbox__label">Your Question:</label>
+            <textarea class="chatbox__input" id="chatboxMessage" placeholder="Type your question here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="chatbox__submit">Send to WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
